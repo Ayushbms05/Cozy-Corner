@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | FAQs</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="FAQ.css">
+  </head>
+  <body>
+    <nav>
+      <a href="student_home.html" class="logo"
+        ><i class="fas fa-couch"></i> Cozy Corner</a
+      >
+    </nav>
+
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          How do I verify if a property is safe?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          All properties marked with a "Verified" badge have been physically
+          visited by our team. We check for safety, amenities, and cleanliness
+          before listing.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Do I have to pay brokerage? <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          No! Cozy Corner is a brokerage-free platform for students. You only
+          pay the rent and a small one-time service fee for legal agreement
+          processing.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Can I book a property without visiting?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          Yes, many students book in advance. We provide video tours and
+          detailed photos. However, we always recommend a physical visit if
+          possible.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          What documents do I need for renting?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          You will typically need your College ID card (or admission letter) and
+          a government ID (Aadhar/PAN) for address proof.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Are guests allowed in PGs? <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          This depends on the specific host's rules. Please check the "House
+          Rules" section on the property detail page before booking.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const faqs = document.querySelectorAll(".faq-item");
+      faqs.forEach((faq) => {
+        faq.querySelector(".faq-question").addEventListener("click", () => {
+          faq.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

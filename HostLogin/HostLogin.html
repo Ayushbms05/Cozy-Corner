@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | Host Login</title>
+    <!-- Importing Google Fonts for a "Cozy" feel -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="HostLogin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- LEFT SIDE: Host Branding -->
+      <div class="brand-section">
+        <i class="fas fa-home illustration"></i>
+        <h1>Cozy Corner</h1>
+        <p>
+          List your property. Verify your space. <br />Earn with peace of mind.
+        </p>
+        <a href="../StudentLogin/StudentLogin.html" class="student-link"
+          ><b>Are you a Student? Click here to login</b></a
+        >
+      </div>
+
+      <!-- RIGHT SIDE: Forms -->
+      <div class="form-section">
+        <!-- Toggle Switch -->
+        <div class="toggle-container">
+          <button
+            class="toggle-btn active"
+            id="loginBtn"
+            onclick="switchForm('login')"
+          >
+            Login
+          </button>
+          <button
+            class="toggle-btn"
+            id="signupBtn"
+            onclick="switchForm('signup')"
+          >
+            Sign Up
+          </button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div id="loginForm" class="form-box active">
+          <h2>Host Login</h2>
+          <form onsubmit="handleLogin(event)">
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Host Email" required />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" required />
+            </div>
+            <button type="submit" class="submit-btn">Login to Dashboard</button>
+            <a href="#" class="forgot-pass">Forgot Password?</a>
+          </form>
+        </div>
+
+        <!-- SIGN UP FORM -->
+        <div id="signupForm" class="form-box">
+          <h2>Become a Host</h2>
+          <form onsubmit="handleSignup(event)">
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Full Name" required />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-phone"></i>
+              <input type="tel" placeholder="Phone Number" required />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email Address" required />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Create Password" required />
+            </div>
+
+            <!-- Verify Host/Property Section -->
+            <div class="verification-group">
+              <label
+                ><i class="fas fa-file-contract"></i> Verify Ownership</label
+              >
+              <small>Upload ID Proof or Property Tax Receipt (PDF/JPG)</small>
+              <input type="file" accept=".pdf, .jpg, .jpeg, .png" required />
+            </div>
+
+            <button type="submit" class="submit-btn">Register Property</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Overlay -->
+    <div id="notification" class="notification">
+      <i class="fas fa-check-circle" style="color: var(--secondary-color)"></i>
+      <span id="notifyText">Success!</span>
+    </div>
+
+    <script src="HostLogin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Corner | Student Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="StudentProfile.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="student_home.html"><i class="fas fa-couch"></i> Cozy Corner</a>
+        </div>
+        <div class="nav-links">
+            <a href="student_home.html">Home</a>
+            <a href="#">Find PGs</a>
+            <a href="#">Find Flats</a>
+            <a href="#" class="active">Profile</a>
+        </div>
+        <div class="user-profile">
+            <div class="avatar">S</div>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Left Sidebar -->
+        <div class="profile-sidebar">
+            <div class="profile-pic"><i class="fas fa-user"></i></div>
+            <div class="user-name">Student Name</div>
+            <div class="user-status"><i class="fas fa-check-circle"></i> Verified Student</div>
+            
+            <div class="menu-list">
+                <div class="menu-item active"><i class="fas fa-user-edit"></i> Edit Profile</div>
+                <div class="menu-item"><i class="fas fa-history"></i> Booking History</div>
+                <div class="menu-item"><i class="fas fa-file-alt"></i> Documents</div>
+                <div class="menu-item" style="color: #ff6b6b;"><i class="fas fa-sign-out-alt"></i> Logout</div>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="profile-content">
+            
+            <!-- Campus Preferences Card (Priority) -->
+            <div class="card" style="border-left: 5px solid var(--secondary-color);">
+                <div class="card-header">
+                    <div class="card-title">Campus Preference</div>
+                    <p class="helper-text">We filter properties based on your college location.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>University / College Name</label>
+                    <div class="college-input-wrapper">
+                        <i class="fas fa-graduation-cap"></i>
+                        <input type="text" id="collegeName" placeholder="e.g. Delhi University, North Campus" value="Delhi University">
+                    </div>
+                    <p class="helper-text"><i class="fas fa-info-circle"></i> Showing listings near <strong>Delhi University</strong></p>
+                </div>
+            </div>
+
+            <!-- Personal Details Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Personal Details</div>
+                </div>
+                <form onsubmit="saveProfile(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" value="Student Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" value="+91 98765 43210">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Email Address</label>
+                            <input type="email" value="student@college.edu" disabled style="background: #f9f9f9; color: #999;">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-save">Save Changes</button>
+                </form>
+            </div>
+
+            <!-- Recent Activity/Bookings -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Recent Activity</div>
+                </div>
+                
+                <div class="booking-item">
+                    <div class="b-img"><i class="fas fa-bed"></i></div>
+                    <div class="b-info">
+                        <div class="b-title">Sunny Side PG</div>
+                        <div class="b-date">Requested on 12th Aug</div>
+                    </div>
+                    <div class="b-status">Pending</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script sec="StudentProfile.js"></script>
+</body>
+</html>

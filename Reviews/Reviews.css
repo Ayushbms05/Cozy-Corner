@@ -1,0 +1,112 @@
+:root {
+  --primary-color: #ff6b6b;
+  --secondary-color: #ff9f43;
+  --bg-color: #f7f1e3;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+body {
+  background: var(--bg-color);
+  margin: 0;
+}
+
+nav {
+  background: white;
+  padding: 1rem 5%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header {
+  text-align: center;
+  padding: 50px 20px;
+}
+.header h1 {
+  font-size: 2.5rem;
+  color: #2d3436;
+}
+.header p {
+  color: #636e72;
+  margin-top: 10px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+}
+
+.review-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #dfe6e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.stars {
+  color: #f1c40f;
+  font-size: 0.9rem;
+}
+
+.review-text {
+  color: #636e72;
+  line-height: 1.5;
+  font-style: italic;
+}
+.property-tag {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.8rem;
+  background: #eef;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #2d3436;
+}
+
+.feedback-form {
+  max-width: 600px;
+  margin: 0 auto 50px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+.btn {
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}

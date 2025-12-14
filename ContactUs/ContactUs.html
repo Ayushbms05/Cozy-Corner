@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | Contact Us</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="ContactUs.css">
+  </head>
+  <body>
+    <nav>
+      <a href="student_home.html" class="logo"
+        ><i class="fas fa-couch"></i> Cozy Corner</a
+      >
+      <div class="nav-links">
+        <a href="student_home.html">Home</a>
+        <a href="faqs.html">FAQs</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="contact-info">
+        <h1>Get in Touch</h1>
+        <p>
+          Have a question about a booking? Or maybe you want to list your
+          hostel? We are here to help 24/7.
+        </p>
+
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <span>+91 1800-COZY-HELP</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <span>support@cozycorner.in</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123, Student Hub, North Campus, Delhi</span>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h2 style="margin-bottom: 20px">Send a Message</h2>
+        <form onsubmit="alert('Message Sent!'); return false;">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea
+              rows="4"
+              placeholder="How can we help?"
+              required
+            ></textarea>
+          </div>
+          <button class="btn">Send Message</button>
+        </form>
+      </div>
+
+      <div class="partnership-box">
+        <h2><i class="fas fa-handshake"></i> Partner with Us</h2>
+        <p>
+          Are you a College Representative or Property Manager? Let's work
+          together to provide safe housing.
+        </p>
+        <button
+          class="btn"
+          style="
+            width: auto;
+            margin-top: 15px;
+            background: var(--secondary-color);
+          "
+        >
+          Partner Inquiry
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
