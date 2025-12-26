@@ -1,145 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cozy Corner | Sunny Side PG</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="PropertyDetail.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | Property Details</title>
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="PropertyDetail.css" />
+  </head>
+
+  <body>
     <!-- Navbar -->
     <nav>
-        <div class="logo">
-            <a href="student_home.html"><i class="fas fa-couch"></i> Cozy Corner</a>
+      <div class="logo" id="logo">
+        <i class="fas fa-couch"></i>
+        <span>Cozy<span class="corner">Corner</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#">Find PGs</a>
+        <a href="#">Find Flats</a>
+      </div>
+      <div class="profile-wrapper">
+        <div class="user-profile" onclick="toggleMenu()">
+          <span id="studentName">Hello</span>
+          <div class="profile" id="studentAvatar">S</div>
         </div>
-        <div class="nav-links">
-            <a href="student_home.html">Home</a>
-            <a href="#">Find PGs</a>
-            <a href="#">Find Flats</a>
-            <a href="#">My Bookings</a>
+
+        <div id="menu" class="menu">
+          <a href="../StudentProfile/StudentProfile.html">
+            <i class="fa-solid fa-user"></i> Profile
+          </a>
+          <a href="../MyBooking/MyBooking.html">
+            <i class="fa-solid fa-calendar-check"></i> My Bookings
+          </a>
+          <a href="#"> <i class="fa-solid fa-gear"></i> Settings </a>
+          <a href="#" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
         </div>
-        <div class="user-profile">
-            <div class="avatar">S</div>
-        </div>
+      </div>
     </nav>
 
+    <!-- Image Gallery -->
     <div class="container">
-        <!-- Gallery -->
-        <div class="gallery-grid">
-            <div class="main-img" id="mainImage"><i class="fas fa-home"></i></div>
-            <div class="sub-img" onclick="changeImage('bedroom')"><i class="fas fa-bed"></i></div>
-            <div class="sub-img" onclick="changeImage('bathroom')"><i class="fas fa-bath"></i></div>
+      <div class="gallery-grid">
+        <div class="main-img" id="mainImage"></div>
+        <div class="sub-img"></div>
+        <div class="sub-img"></div>
+      </div>
+
+      <div class="content-layout">
+        <!-- LEFT SECTION -->
+        <div class="details-section">
+          <div class="property-header">
+            <h1 class="property-title" id="propertyTitle"></h1>
+
+            <div class="property-location" id="propertyLocation"></div>
+
+            <div class="tags" id="propertyTags"></div>
+          </div>
+
+          <div class="section-heading">About this place</div>
+          <p class="description" id="propertyDescription"></p>
+
+          <div class="section-heading">Amenities</div>
+          <div class="amenities-grid" id="amenitiesGrid"></div>
         </div>
 
-        <div class="content-layout">
-            
-            <!-- Left Side Details -->
-            <div class="details-section">
-                <div class="property-header">
-                    <h1 class="property-title">Sunny Side PG (Boys)</h1>
-                    <div class="property-location">
-                        <i class="fas fa-map-marker-alt"></i> 500m from North Campus Gate, University Road
-                    </div>
-                    <div class="tags">
-                        <span class="tag">Verified</span>
-                        <span class="tag">Boys Only</span>
-                        <span class="tag">Single Occupancy</span>
-                    </div>
-                </div>
+        <!-- RIGHT SECTION -->
+        <div class="booking-card">
+          <div class="price-tag" id="propertyPrice"></div>
 
-                <div class="section-heading">About this place</div>
-                <p class="description">
-                    A cozy, well-lit PG located just walking distance from the university campus. Perfect for students looking for a quiet environment to study. Recently renovated with modern furniture and high-speed internet. We organize weekly community dinners to help you feel at home!
-                </p>
-
-                <div class="section-heading">Amenities</div>
-                <div class="amenities-grid">
-                    <div class="amenity-item"><i class="fas fa-wifi"></i> High-Speed Wifi</div>
-                    <div class="amenity-item"><i class="fas fa-utensils"></i> 3 Times Healthy Food</div>
-                    <div class="amenity-item"><i class="fas fa-bolt"></i> 24/7 Power Backup</div>
-                    <div class="amenity-item"><i class="fas fa-tshirt"></i> Laundry Service</div>
-                    <div class="amenity-item"><i class="fas fa-broom"></i> Daily Housekeeping</div>
-                    <div class="amenity-item"><i class="fas fa-shield-alt"></i> CCTV Security</div>
-                </div>
-
-                <div class="section-heading">Meet your Host</div>
-                <div class="host-card">
-                    <div class="host-img" style="display:flex; justify-content:center; align-items:center; color:#aaa;"><i class="fas fa-user"></i></div>
-                    <div class="host-info">
-                        <h4>Rajesh Kumar</h4>
-                        <p>Superhost • 4 years hosting</p>
-                    </div>
-                    <button class="contact-host-btn">Message Host</button>
-                </div>
-
-                <div class="section-heading">Student Reviews</div>
-                <div class="review">
-                    <div class="review-header">
-                        <strong>Amit S.</strong>
-                        <div class="review-stars"><i class="fas fa-star"></i> 4.5</div>
-                    </div>
-                    <p class="review-text">Great place! The food is actually homely and not like typical mess food. Wifi is fast.</p>
-                </div>
-                <div class="review">
-                    <div class="review-header">
-                        <strong>Rahul V.</strong>
-                        <div class="review-stars"><i class="fas fa-star"></i> 5.0</div>
-                    </div>
-                    <p class="review-text">Uncle Rajesh is very helpful. Location is best part, I save transport money.</p>
-                </div>
+          <div class="booking-form">
+            <div class="form-group">
+              <label>Move-in Date</label>
+              <input type="date" id="moveInDate" />
             </div>
 
-            <!-- Right Side Booking Card -->
-            <div class="booking-card">
-                <div class="price-tag">
-                    ₹8,500 <span>/ month</span>
-                </div>
-                
-                <div class="booking-form">
-                    <div class="form-group">
-                        <label>Move-in Date</label>
-                        <input type="date">
-                    </div>
-                    <div class="form-group">
-                        <label>Duration</label>
-                        <select id="durationSelect" onchange="calculateTotal()">
-                            <option value="1">1 Month</option>
-                            <option value="3">3 Months</option>
-                            <option value="6">6 Months (5% off)</option>
-                            <option value="11">11 Months (10% off)</option>
-                        </select>
-                    </div>
-                    
-                    <button class="book-btn" onclick="requestBooking()">Request to Book</button>
-                    
-                    <div class="charge-details">
-                        <div class="charge-row">
-                            <span>Security Deposit</span>
-                            <span>₹8,500</span>
-                        </div>
-                        <div class="charge-row">
-                            <span>Service Fee</span>
-                            <span>₹500</span>
-                        </div>
-                        <div class="total-row">
-                            <span>First Month Total</span>
-                            <span id="totalPrice">₹17,500</span>
-                        </div>
-                    </div>
-                    <p style="text-align: center; margin-top: 15px; font-size: 0.8rem; color: #888;">You won't be charged yet</p>
-                </div>
+            <div class="form-group">
+              <label>Duration</label>
+              <select id="durationSelect" onchange="calculateTotal()">
+                <option value="1">1 Month</option>
+                <option value="3">3 Months</option>
+                <option value="6">6 Months</option>
+              </select>
             </div>
 
+            <button class="book-btn" onclick="requestBooking()">
+              Request to Book
+            </button>
+
+            <div class="charge-details">
+              <div class="charge-row">
+                <span>Security Deposit</span>
+                <span id="depositAmount"></span>
+              </div>
+
+              <div class="charge-row">
+                <span>Service Fee</span>
+                <span id="serviceFee">₹500</span>
+              </div>
+
+              <div class="total-row">
+                <span>First Month Total</span>
+                <span id="totalPrice"></span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    <footer style="text-align: center; padding: 40px; border-top: 1px solid #eee; margin-top: 50px; background: white; color: var(--text-light);">
-        <p>&copy; 2025 Cozy Corner. Made with <i class="fas fa-heart" style="color: var(--primary-color);"></i> for Students.</p>
+    <!--Success Model-->
+    <div class="overlay" id="successOverlay">
+      <div class="success-modal">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h2 id="successTitle">Success!</h2>
+        <p id="successMessage" style="color: var(--text-light); margin: 10px 0 20px">
+          Operation completed successfully.
+        </p>
+        <button class="ok_btn" id="successBtn" onclick="window.location.href='../MyBooking/MyBooking.html'">
+          Ok
+        </button>
+      </div>
+    </div>
+    <footer
+      style="
+        text-align: center;
+        padding: 40px;
+        border-top: 1px solid #eee;
+        margin-top: 50px;
+        background: white;
+        color: var(--text-light);
+      "
+    >
+      <p>
+        &copy; 2025 Cozy Corner. Made with
+        <i class="fas fa-heart" style="color: var(--primary-color)"></i>
+        for Students.
+      </p>
     </footer>
 
     <script src="PropertyDetail.js"></script>
-</body>
+  </body>
 </html>

@@ -1,93 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cozy Corner | Student Login</title>
     <!-- Importing Google Fonts for a "Cozy" feel -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="StudentLogin.css">
-
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="StudentLogin.css" />
+  </head>
+  <body>
     <div class="container">
-        <!-- LEFT SIDE: Branding -->
-        <div class="brand-section">
-            <i class="fas fa-couch illustration"></i>
-            <h1>Cozy Corner</h1>
-            <p>Find your perfect home away from home. Verified PGs and Flats for students.</p>
-            <a onclick="HostLogin()" class="host-link"><b>Are you a Host? Click here to login</b></a>
+      <!-- LEFT SIDE: Branding -->
+      <div class="brand-section">
+        <i class="fas fa-couch illustration"></i>
+        <h1>Cozy Corner</h1>
+        <p>
+          Find your perfect home away from home. Verified PGs and Flats for
+          students.
+        </p>
+        <a href="../HostLogin/HostLogin.html" class="host-link"
+          ><b>Are you a Host? Click here to login</b></a
+        >
+      </div>
+
+      <!-- RIGHT SIDE: Forms -->
+      <div class="form-section">
+        <!-- Toggle Switch -->
+        <div class="toggle-container">
+          <button
+            class="toggle-btn active"
+            id="loginBtn"
+            onclick="switchForm('login')"
+          >
+            Login
+          </button>
+          <button
+            class="toggle-btn"
+            id="signupBtn"
+            onclick="switchForm('signup')"
+          >
+            Sign Up
+          </button>
         </div>
 
-        <!-- RIGHT SIDE: Forms -->
-        <div class="form-section">
-            
-            <!-- Toggle Switch -->
-            <div class="toggle-container">
-                <button class="toggle-btn active" id="loginBtn" onclick="switchForm('login')">Login</button>
-                <button class="toggle-btn" id="signupBtn" onclick="switchForm('signup')">Sign Up</button>
+        <!-- LOGIN FORM -->
+        <div id="loginForm" class="form-box active">
+          <h2>Welcome Student!</h2>
+          <form onsubmit="handleLogin(event)">
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                id="loginEmail"
+                placeholder="Student Email"
+                required
+              />
             </div>
-
-            <!-- LOGIN FORM -->
-            <div id="loginForm" class="form-box active">
-                <h2>Welcome Student!</h2>
-                <form onsubmit="handleLogin(event)">
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Student Email" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Login</button>
-                    <a href="#" class="forgot-pass">Forgot Password?</a>
-                </form>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                required
+              />
             </div>
-
-            <!-- SIGN UP FORM -->
-            <div id="signupForm" class="form-box">
-                <h2>Create Account</h2>
-                <form onsubmit="handleSignup(event)">
-                    <div class="input-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Full Name" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-phone"></i>
-                        <input type="tel" placeholder="Phone Number" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Student Email" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Create Password" required>
-                    </div>
-
-                    <!-- Verify Students Section -->
-                    <div class="verification-group">
-                        <label><i class="fas fa-id-card"></i> Verify Student Status</label>
-                        <small>Upload College ID Card or Admission Letter (PDF/JPG)</small>
-                        <input type="file" accept=".pdf, .jpg, .jpeg, .png" required>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Register & Verify</button>
-                </form>
-            </div>
+            <button type="submit" class="submit-btn">Login</button>
+            <a href="#" class="forgot-pass">Forgot Password?</a>
+          </form>
         </div>
+
+        <!-- SIGN UP FORM -->
+        <div id="signupForm" class="form-box">
+          <h2>Create Account</h2>
+          <form onsubmit="handleSignup(event)">
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <input
+                type="text"
+                id="signupName"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-phone"></i>
+              <input
+                type="tel"
+                id="signupPhone"
+                placeholder="Phone Number"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                id="signupEmail"
+                placeholder="Student Email"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="signupPassword"
+                placeholder="Create Password"
+                required
+              />
+            </div>
+
+            <!-- Verify Students Section -->
+            <div class="verification-group">
+              <label
+                ><i class="fas fa-id-card"></i> Verify Student Status</label
+              >
+              <small
+                >Upload College ID Card or Admission Letter (PDF/JPG)</small
+              >
+              <input
+                type="file"
+                id="studentProof"
+                accept=".pdf, .jpg, .jpeg, .png"
+                required
+              />
+            </div>
+
+            <button type="submit" class="submit-btn">Register & Verify</button>
+          </form>
+        </div>
+      </div>
     </div>
 
     <!-- Notification Overlay -->
     <div id="notification" class="notification">
-        <i class="fas fa-check-circle" style="color: var(--secondary-color);"></i>
-        <span id="notifyText">Success!</span>
+      <i class="fas fa-check-circle" style="color: var(--secondary-color)"></i>
+      <span id="notifyText">Success!</span>
     </div>
     <script src="StudentLogin.js"></script>
-
-</body>
+  </body>
 </html>

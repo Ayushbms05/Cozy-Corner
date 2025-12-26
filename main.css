@@ -34,12 +34,31 @@ nav {
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary-color);
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.logo i {
+  font-size: 26px;
+  padding: 10px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  color: white;
+  box-shadow: 0 6px 18px rgba(255, 107, 107, 0.45);
+}
+
+.logo span {
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+}
+
+.logo .corner {
+  color: var(--primary-color);
 }
 
 .nav-links {
@@ -59,23 +78,98 @@ nav {
   color: var(--primary-color);
 }
 
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff1f1, #ffe3e3);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 107, 107, 0.3);
+  transition: all 0.3s ease;
+}
+.menu-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.45);
+}
+
+.dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 200px;
+  background: linear-gradient(135deg, #fff5f5, #ffecec);
+  border-radius: 16px;
+  padding: 10px 0;
+  box-shadow: 0 12px 30px rgba(218, 209, 209, 0.25);
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.dropdown a:hover {
+  background: rgba(255, 107, 107, 0.12);
+  color: var(--primary-color);
+}
+
+.dropdown i {
+  color: var(--primary-color);
+}
+
+.show {
+  display: block;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 👈 control spacing here */
+}
+
+.nav-btn {
+  display: flex;
+  gap: 12px;
+}
+
+.menu-btn {
+  margin-left: 5px; /* optional fine tuning */
+}
 
 /* --- Hero Section --- */
 .hero {
   position: relative;
   width: 100%;
-  height: 60vh;          
+  height: 60vh;
   text-align: center;
   color: white;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
-  overflow: hidden;          
+  overflow: hidden;
 }
 
 .hero-img {
   width: 100%;
   height: 100%;
-  object-fit: fill;   
+  object-fit: fill;
   display: block;
 }
 
@@ -89,7 +183,6 @@ nav {
   z-index: 2;
 }
 
-
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
@@ -101,7 +194,6 @@ nav {
   margin-bottom: 30px;
   opacity: 0.9;
   color: #636e72;
-
 }
 
 .search-bar {
@@ -134,7 +226,8 @@ nav {
   cursor: pointer;
 }
 
-.search-btn, .login-btn {
+.search-btn,
+.login-btn {
   background-color: var(--primary-color);
   color: white;
   border: none;
@@ -146,27 +239,29 @@ nav {
   margin-left: 10px;
 }
 
-.search-btn:hover, .login-btn:hover {
+.search-btn:hover,
+.login-btn:hover {
   background-color: #ff5252;
   transform: translateX(-2px);
-
 }
 
-.host-btn{
-  background-color: rgb(248, 238, 238);
-  color:black;
+.host-btn {
+  background: linear-gradient(135deg, #fff1f1, #ffe3e3);
+  box-shadow: 0 4px 14px rgba(255, 107, 107, 0.3);
+  transition: all 0.3s ease;
+
+  color: black;
   border: none;
   padding: 12px 30px;
   border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
   margin-left: 10px;
 }
 
 .host-btn:hover {
-  background-color: rgb(228, 218, 218);
-  transform: translateX(-1px);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.45);
 }
 
 /* --- Main Content --- */
@@ -227,11 +322,18 @@ nav {
   cursor: pointer;
 }
 
-.card:hover {
+.card:hover .card-image {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
+.card-image {
+  transition: transform 0.3s;
+}
+
+.card-heart:hover ~ .card-details,
+.card-heart:hover ~ .card-image {
+  transform: none;
+}
 .card-image {
   height: 200px;
   background-color: #eee;
@@ -241,18 +343,17 @@ nav {
   justify-content: center;
   color: #aaa;
   font-size: 2rem;
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 /* Placeholder patterns for images */
 .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   
+  object-fit: cover;
   display: block;
   background-color: #eee;
 }
-
 
 .verified-badge {
   position: absolute;
@@ -282,6 +383,7 @@ nav {
   align-items: center;
   color: #ddd;
   transition: 0.3s;
+  pointer-events: auto;
 }
 
 .card-heart i {
@@ -294,6 +396,7 @@ nav {
 
 .card-heart.active {
   color: var(--primary-color);
+  transform: scale(1.1);
 }
 
 .card-details {
@@ -365,62 +468,4 @@ footer {
   .nav-links {
     display: none; /* Simplified for demo */
   }
-}
-
-.menu-container {
-  position: relative;
-  display: inline-block;
-}
-
-.menu-btn {
-  font-size: 22px;
-  padding: 10px 14px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  background-color: rgb(248, 238, 238);
-}
-
-.dropdown {
-  display: none;   
-  position: absolute;
-  right: 0;
-  top: 55px;
-  background: white;
-  min-width: 200px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-  border-radius: 10px;
-  overflow: hidden;
-  z-index: 1000;
-}
-
-.dropdown a {
-  display: block;
-  padding: 12px;
-  text-decoration: none;
-  color: black;
-}
-
-.dropdown a:hover {
-  background-color: #f2f2f2;
-}
-
-
-.show{
-  display: block;
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;   /* 👈 control spacing here */
-}
-
-.nav-btn {
-  display: flex;
-  gap: 12px;
-}
-
-.menu-btn {
-  margin-left: 5px; /* optional fine tuning */
 }

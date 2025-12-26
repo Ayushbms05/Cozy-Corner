@@ -17,14 +17,22 @@
   <body>
     <!-- Navbar -->
     <nav>
-      <a href="host_home.html" class="logo">
-        <i class="fas fa-home"></i> Cozy Corner Host
-      </a>
-      <div class="nav-links">
-        <a href="../HostDashboard/HostDashboard.html">Dashboard</a>
+      <div class="logo" id="logo">
+        <i class="fas fa-home"></i>
+        <span>Cozy <span class="corner">Corner</span>
       </div>
+
+      <div class="nav-links">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">My Listings</a>
+        <a href="#">Messages</a>
+        <a href="#">Wallet</a>
+      </div>
+
       <div class="user-profile">
-        <div class="avatar">R</div>
+        <span id="hostName">Host</span>
+        <span class="role-badge">Host</span>
+        <div class="avatar" id="hostAvatar">H</div>
       </div>
     </nav>
 
@@ -45,6 +53,7 @@
             <label>Property Title</label>
             <input
               type="text"
+              id="title"
               placeholder="e.g. Sunny Side PG for Boys"
               required
             />
@@ -53,7 +62,7 @@
           <div class="grid-2">
             <div class="form-group">
               <label>Property Type</label>
-              <select>
+              <select id="propertyType">
                 <option>PG (Boys)</option>
                 <option>PG (Girls)</option>
                 <option>Co-ed PG</option>
@@ -63,7 +72,7 @@
             </div>
             <div class="form-group">
               <label>Occupancy Type</label>
-              <select>
+              <select id="occupancyType">
                 <option>Single Room</option>
                 <option>Double Sharing</option>
                 <option>Triple Sharing</option>
@@ -75,6 +84,7 @@
           <div class="form-group">
             <label>Description</label>
             <textarea
+              id="description"
               rows="4"
               placeholder="Tell students what makes your place special..."
             ></textarea>
@@ -91,6 +101,7 @@
             <label>Full Address</label>
             <input
               type="text"
+              id="address"
               placeholder="House No, Street, Locality"
               required
             />
@@ -99,12 +110,13 @@
           <div class="grid-2">
             <div class="form-group">
               <label>City</label>
-              <input type="text" placeholder="e.g. Delhi" required />
+              <input type="text" id="city" placeholder="e.g. Delhi" required />
             </div>
             <div class="form-group">
               <label>Nearest College/Campus</label>
               <input
                 type="text"
+                id="nearestCollege"
                 placeholder="e.g. Delhi University, North Campus"
                 required
               />
@@ -185,17 +197,18 @@
           <div class="grid-2">
             <div class="form-group">
               <label>Monthly Rent (₹)</label>
-              <input type="number" placeholder="e.g. 8000" required />
+              <input type="number" id="rent" placeholder="e.g. 8000" required />
             </div>
             <div class="form-group">
               <label>Security Deposit (₹)</label>
-              <input type="number" placeholder="e.g. 15000" />
+              <input type="number" id="deposit" placeholder="e.g. 15000" />
             </div>
           </div>
 
           <div class="form-group">
             <label>House Rules (Optional)</label>
             <textarea
+              id="rules"
               rows="2"
               placeholder="e.g. No smoking, Entry deadline 10 PM..."
             ></textarea>

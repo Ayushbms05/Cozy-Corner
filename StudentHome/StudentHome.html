@@ -17,24 +17,36 @@
   <body>
     <!-- Navbar -->
     <nav>
-      <div class="logo"><i class="fas fa-couch"></i> Cozy Corner</div>
+      <div class="logo" id="logo">
+        <i class="fas fa-couch"></i>
+        <span>Cozy<span class="corner">Corner</span></span>
+      </div>
       <div class="nav-links">
         <a href="#" class="active">Home</a>
         <a href="#">Find PGs</a>
         <a href="#">Find Flats</a>
       </div>
-      <div class="user-profile">
-        <span>Hello, Student</span>
-        <div class="profile" onclick="toggleMenu()">S</div>
-      </div>
+      <div class="profile-wrapper">
+        <div class="user-profile" onclick="toggleMenu()">
+          <span id="studentName">Hello</span>
+          <div class="profile" id="studentAvatar">S</div>
+        </div>
 
-      <div id="menu" class="menu">
-        <a href="../StudentProfile/StudentProfile.html"
-          ><i class="fa-solid fa-user"></i>Profile</a
-        >
-        <a href="#"><i class="fa-solid fa-calendar-check"></i>My Bookings</a>
-        <a href="#"><i class="fa-solid fa-gear"></i>Setting</a>
-        <a href="#"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+        <div id="menu" class="menu">
+          <a href="../StudentProfile/StudentProfile.html">
+            <i class="fa-solid fa-user"></i> Profile
+          </a>
+          <a href="../MyBooking/MyBooking.html">
+            <i class="fa-solid fa-calendar-check"></i> My Bookings
+          </a>
+          <a href="../Wishlist/Wishlist.html">
+            <i class="fa-solid fa-heart"></i> Wishlist
+          </a>
+          <a href="#"> <i class="fa-solid fa-gear"></i> Settings </a>
+          <a href="#" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
+        </div>
       </div>
     </nav>
 
@@ -77,364 +89,7 @@
         </div>
       </div>
 
-      <div class="listings-grid" id="listingsGrid">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-        <!-- Card 1 -->
-        <div class="card" data-category="long metro">
-          <div class="card-image img-1">
-            <img
-              src="https://www.northcampusgirlspg.com/images/interiors.jpg"
-              alt="Sunny Side PG"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹8,500 <span>/ month</span></div>
-            <div class="card-title">Sunny Side PG (Boys)</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> 500m from University Gate
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-wifi"></i> Wifi</div>
-              <div class="feature"><i class="fas fa-utensils"></i> Food</div>
-              <div class="feature"><i class="fas fa-bed"></i> Single</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-2">
-            <img
-              src="https://kripalhomes.com/wp-content/uploads/2023/02/46fd6fb9-ab53-49d5-89ed-6487034a634c-e1625041743547.jpg"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹9,000 <span>/ month</span></div>
-            <div class="card-title">Greenwood Flats (2BHK)</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> Civil Lines, Near Market
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-snowflake"></i> AC</div>
-              <div class="feature"><i class="fas fa-couch"></i> Furnished</div>
-              <div class="feature"><i class="fas fa-users"></i> 4 Pax</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card" data-category="short metro">
-          <div class="card-image img-3">
-            <img
-              src="https://img.staticmb.com/mbphoto/pg/grd2/cropped_images/2023/Jul/14/Photo_h400_w540/GR2-383419-1816477_400_540.jpg"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹2,400 <span>/ night</span></div>
-            <div class="card-title">Cozy Studio (Short Term)</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> Central City Hub
-            </div>
-            <div class="card-features">
-              <div class="feature">
-                <i class="fas fa-calendar-alt"></i> Daily
-              </div>
-              <div class="feature"><i class="fas fa-tv"></i> TV</div>
-              <div class="feature"><i class="fas fa-shower"></i> Attached</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://image.speedhome.com/speedrent-backend/images/property/UELPSDLX/EIKTY7SG4PCVE22W-medium.jpg"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹6,000 <span>/ month</span></div>
-            <div class="card-title">Daisy Girls Hostel</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> West Block, Sector 4
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 3 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://www.kukup.my/Media/images/20190410212708892_M.JPG"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹3,000 <span>/ month</span></div>
-            <div class="card-title">BlueLeaf Residency</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> 2nd Cross, Indiranagar
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 4 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://cf.bstatic.com/xdata/images/hotel/max500/375695885.jpg?k=2a14d05bbd00e78eaab1cea7b5787b3a05a1f95a1c20c687c6223d28b0f0dc41&o="
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹4,500 <span>/ month</span></div>
-            <div class="card-title">Urban Stay PG</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> Near Metro Station,
-              Whitefield
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 3 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 7 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://static.wixstatic.com/media/489126_dfef54c91d16494f9421b51032bb9f94~mv2.jpg/v1/fill/w_984,h_1176,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3136%202_edited.jpg"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹6,000 <span>/ month</span></div>
-            <div class="card-title">Sunrise Comfort PG</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> 5th Block, Koramangala
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 4 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 8 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://alexandro.in/image/mumbai/covie-kharghar-190/5.jpg"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹5,700 <span>/ month</span></div>
-            <div class="card-title">BlueLeaf Residency</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> BTM 2nd Stage
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 3 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 9 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://wakeuphostels.in/wp-content/uploads/elementor/thumbs/ladies-pg-jayanagar-9th-block-near-metro-station-pcgrwhf63t6wr765lewnocz59zoctcfjg8b2omxb20.jpeg "
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹6,500 <span>/ month</span></div>
-            <div class="card-title">Campus View PG</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> Opp. Engineering College
-              Gate
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 3 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 10 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/414569429.jpg?k=7abe6a8eba0276188bf9531ebaac0c862ed8ef5be9c543f069a57233891ea306&o="
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹3,600 <span>/ month</span></div>
-            <div class="card-title">Prime Living Flat</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> Marathahalli Bridge
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 3 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 11 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://www.kukup.my/Media/images/20230902091745439_M.JPG"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹5,000 <span>/ month</span></div>
-            <div class="card-title">Cozy Haven PG</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> HSR Layout Sector 3
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 3 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 12 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://www.studentroombooking.com/assets/images/7dadbede84ad0e96e6d7ad2761c9469f.jpeg"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹6,000 <span>/ month</span></div>
-            <div class="card-title">Maple Tree PG</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> Yelahanka New Town
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 3 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 13 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://image.speedhome.com/speedrent-backend/images/property/MCOOLBMJ/5D8IFCAQSFTORHLD-medium.jpg"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹6,000 <span>/ month</span></div>
-            <div class="card-title">Metro Nest PG</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> Jayanagar 4th Block
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 3 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 14 -->
-        <div class="card" data-category="long">
-          <div class="card-image img-4">
-            <img
-              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/473155139.jpg?k=05649782c598ecb8fa572d7bb27d1946205c3b9ea6191303e96ff427a152c805&o=&hp=1"
-            />
-            <div class="verified-badge">
-              <i class="fas fa-check-circle"></i> Verified
-            </div>
-            <div class="card-heart"><i class="fas fa-heart"></i></div>
-          </div>
-          <div class="card-details">
-            <div class="card-price">₹6,500 <span>/ month</span></div>
-            <div class="card-title">Peaceful Abode PG</div>
-            <div class="card-location">
-              <i class="fas fa-map-marker-alt"></i> Near City Market
-            </div>
-            <div class="card-features">
-              <div class="feature"><i class="fas fa-lock"></i> Secure</div>
-              <div class="feature"><i class="fas fa-utensils"></i> 3 Meals</div>
-              <div class="feature"><i class="fas fa-bolt"></i> Backup</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="listings-grid" id="listingsGrid"></div>
 
       <div style="text-align: center">
         <button
@@ -458,6 +113,6 @@
         Students.
       </p>
     </footer>
-    <script src="StudentHome.js"></script>
+    <script src="StudentHome.js" defer></script>
   </body>
 </html>

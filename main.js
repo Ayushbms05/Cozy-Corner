@@ -1,3 +1,39 @@
+// Landing page must always be public
+localStorage.removeItem("token");
+localStorage.removeItem("role");
+
+function requireStudentLogin(redirectUrl) {
+  const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
+
+  if (!token || role !== "student") {
+    window.location.href = "StudentLogin/StudentLogin.html";
+    return false;
+  }
+
+  if (redirectUrl) {
+    window.location.href = redirectUrl;
+  }
+
+  return true;
+}
+
+const AMENITY_ICONS = {
+  Wifi: "fa-wifi",
+  Ac: "fa-snowflake",
+  Food: "fa-utensils",
+  Laundry: "fa-soap",
+  Power: "fa-bolt",
+  Cctv: "fa-video",
+};
+function normalizeAmenities(amenitiesObj) {
+  if (!amenitiesObj || typeof amenitiesObj !== "object") return [];
+
+  return Object.entries(amenitiesObj)
+    .filter(([_, value]) => value === true)
+    .map(([key]) => key.charAt(0).toUpperCase() + key.slice(1));
+}
+
 // --- FILTERING LOGIC ---
 const pills = document.querySelectorAll(".filter-pill");
 const cards = document.querySelectorAll(".card");
@@ -26,6 +62,91 @@ pills.forEach((pill) => {
   });
 });
 
+//fetch properties
+async function loadLandingProperties() {
+  try {
+    const res = await fetch("http://localhost:5000/api/properties");
+    const properties = await res.json();
+
+    console.log("Fetched properties:", properties);
+
+    const grid = document.getElementById("listingsGrid");
+    grid.innerHTML = "";
+
+    properties.forEach((p) => {
+      const amenities = normalizeAmenities(p.amenities);
+
+      const card = document.createElement("div");
+      card.className = "card";
+      card.setAttribute("data-category", "long"); // safe default
+
+      card.innerHTML = `
+        <div class="card-image">
+          <img src="${p.images?.[0] || "./images/default.jpg"}" />
+          <div class="verified-badge">
+            <i class="fas fa-check-circle"></i> Verified
+          </div>
+          <div class="card-heart">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+
+        <div class="card-details">
+          <div class="card-price">
+            ₹${p.rent} <span>/month</span>
+          </div>
+
+          <div class="card-title">${p.title}</div>
+
+          <div class="card-location">
+            <i class="fas fa-map-marker-alt"></i>
+            ${p.address || ""}${p.city ? ", " + p.city : ""}
+          </div>
+
+
+          <div class="card-features">
+  ${amenities
+    .slice(0, 3)
+    .map(
+      (a) => `
+        <div class="feature">
+          <i class="fas ${AMENITY_ICONS[a] || "fa-circle"}"></i> ${a}
+        </div>
+      `
+    )
+    .join("")}
+    </div>
+
+        </div>
+      `;
+
+      card.addEventListener("click", () => {
+        requireStudentLogin(
+          `../PropertyDetails/PropertyDetail.html?id=${p._id}`
+        );
+      });
+
+      card.querySelector(".card-heart").addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          localStorage.setItem("postLoginRedirect", window.location.pathname);
+          window.location.href = "StudentLogin/StudentLogin.html";
+          return;
+        }
+
+        e.currentTarget.classList.toggle("active");
+      });
+
+      grid.appendChild(card);
+    });
+  } catch (err) {
+    console.error("Failed to load properties", err);
+  }
+}
+
 // --- SEARCH LOGIC ---
 function performSearch() {
   const input = document.getElementById("searchInput").value;
@@ -35,15 +156,6 @@ function performSearch() {
     alert("Please enter a location to search!");
   }
 }
-
-// --- HEART/LIKE LOGIC ---
-const hearts = document.querySelectorAll(".card-heart");
-hearts.forEach((heart) => {
-  heart.addEventListener("click", (e) => {
-    e.stopPropagation(); // Prevent card click
-    heart.classList.toggle("active");
-  });
-});
 
 // --- KEYFRAME ANIMATION FOR FILTERS ---
 const styleSheet = document.createElement("style");
@@ -76,4 +188,4 @@ window.onclick = function (event) {
     }
   }
 };
-
+loadLandingProperties();

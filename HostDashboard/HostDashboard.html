@@ -1,164 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cozy Corner | Host Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="HostDashboard.css">
-</head>
-<body>
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="HostDashboard.css" />
+  </head>
+
+  <body>
     <!-- Navbar -->
     <nav>
-        <div class="logo">
-            <i class="fas fa-home"></i> Cozy Corner Host
-        </div>
-        <div class="nav-links">
-            <a href="#" class="active">Dashboard</a>
-            <a href="#">My Listings</a>
-            <a href="#">Messages <span style="background:var(--primary-color); color:white; padding:2px 6px; border-radius:50%; font-size:0.7rem;">3</span></a>
-            <a href="#">Wallet</a>
-        </div>
-        <div class="user-profile">
-            <span>Rajesh Kumar</span>
-            <div class="avatar">R</div>
-        </div>
+      <div class="logo" id="logo">
+        <i class="fas fa-home"></i>
+        <span>Cozy <span class="corner">Corner</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">My Listings</a>
+        <a href="#">Messages</a>
+        <a href="#">Wallet</a>
+      </div>
+
+      <div class="user-profile">
+        <span id="hostName">Host</span>
+        <span class="role-badge">Host</span>
+        <div class="avatar" id="hostAvatar">H</div>
+      </div>
     </nav>
 
     <!-- Header -->
     <div class="dashboard-header">
-        <div class="welcome-text">
-            <h1>Welcome back, Rajesh!</h1>
-            <p>Here's what's happening with your properties today.</p>
-        </div>
-        <button class="add-property-btn" onclick="window.location.href='../AddListing/AddListing.html'">
-            <i class="fas fa-plus"></i> Add New Property
-        </button>
+      <div class="welcome-text">
+        <h1 id="welcomeText">Welcome back!</h1>
+        <p>Here's what's happening with your properties today.</p>
+      </div>
+
+      <button
+        class="add-property-btn"
+        onclick="window.location.href='../AddListing/AddListing.html'"
+      >
+        <i class="fas fa-plus"></i> Add New Property
+      </button>
     </div>
 
     <!-- Stats Section -->
     <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-icon" style="background-color: #00b894;">
-                <i class="fas fa-wallet"></i>
-            </div>
-            <div class="stat-info">
-                <h3>₹45,000</h3>
-                <p>Total Earnings this month</p>
-            </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background-color: #00b894">
+          <i class="fas fa-wallet"></i>
         </div>
-        <div class="stat-card">
-            <div class="stat-icon" style="background-color: var(--secondary-color);">
-                <i class="fas fa-home"></i>
-            </div>
-            <div class="stat-info">
-                <h3>2</h3>
-                <p>Active Listings</p>
-            </div>
+        <div class="stat-info">
+          <h3 id="totalEarnings">₹0</h3>
+          <p>Total Earnings </p>
         </div>
-        <div class="stat-card">
-            <div class="stat-icon" style="background-color: var(--primary-color);">
-                <i class="fas fa-eye"></i>
-            </div>
-            <div class="stat-info">
-                <h3>1.2k</h3>
-                <p>Total Views</p>
-            </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background-color: var(--secondary-color)">
+          <i class="fas fa-home"></i>
         </div>
+        <div class="stat-info">
+          <h3 id="activeListings">0</h3>
+          <p>Active Listings</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background-color: var(--primary-color)">
+          <i class="fas fa-eye"></i>
+        </div>
+        <div class="stat-info">
+          <h3 id="totalViews">0</h3>
+          <p>Total Views</p>
+        </div>
+      </div>
     </div>
 
     <!-- Main Content -->
     <div class="content-grid">
-        
-        <!-- Left: My Properties -->
-        <div class="properties-section">
-            <div class="section-header">
-                <div class="section-title">Your Properties</div>
-                <a href="#" style="color:var(--secondary-color); text-decoration:none; font-weight:bold; font-size:0.9rem;">View All</a>
-            </div>
-
-            <!-- Property 1 -->
-            <div class="property-card">
-                <div class="prop-img" style="background:#ffeaa7;"><i class="fas fa-bed"></i></div>
-                <div class="prop-info">
-                    <div class="prop-title">Sunny Side PG (Boys)</div>
-                    <div class="prop-loc">North Campus, University Road</div>
-                    <span class="status-badge status-active">Active</span>
-                    <span style="font-size:0.8rem; color:#888; margin-left:10px;"><i class="fas fa-eye"></i> 450 views</span>
-                </div>
-                <div class="prop-actions">
-                    <button class="action-btn"><i class="fas fa-edit"></i> Edit</button>
-                    <button class="action-btn"><i class="fas fa-chart-bar"></i> Stats</button>
-                </div>
-            </div>
-
-            <!-- Property 2 -->
-            <div class="property-card">
-                <div class="prop-img" style="background:#81ecec;"><i class="fas fa-building"></i></div>
-                <div class="prop-info">
-                    <div class="prop-title">Greenwood Flats (2BHK)</div>
-                    <div class="prop-loc">Civil Lines, Near Market</div>
-                    <span class="status-badge status-occupied">Occupied</span>
-                </div>
-                <div class="prop-actions">
-                    <button class="action-btn"><i class="fas fa-edit"></i> Edit</button>
-                    <button class="action-btn"><i class="fas fa-file-invoice"></i> Rent</button>
-                </div>
-            </div>
+      <!-- Left: My Properties -->
+      <div class="properties-section">
+        <div class="section-header">
+          <div class="section-title">Your Properties</div>
         </div>
 
-        <!-- Right: Recent Requests -->
-        <div class="requests-section">
-            <div class="section-header">
-                <div class="section-title">Booking Requests</div>
-            </div>
+        <!-- Dynamic properties will load here -->
+        <div id="myProperties"></div>
+      </div>
 
-            <div class="requests-container">
-                <!-- Request 1 -->
-                <div class="request-item" id="req1">
-                    <div class="req-header">
-                        <div class="req-avatar">AS</div>
-                        <div>
-                            <div style="font-weight:bold;">Amit Singh</div>
-                            <small>Student • 4.5 Stars</small>
-                        </div>
-                    </div>
-                    <div class="req-details">
-                        <p>Requested: <strong>Sunny Side PG</strong></p>
-                        <small><i class="fas fa-calendar"></i> Move in: 1st Sept (6 Months)</small>
-                    </div>
-                    <div class="req-actions">
-                        <button class="btn-accept" onclick="handleRequest('req1', 'accepted')">Accept</button>
-                        <button class="btn-decline" onclick="handleRequest('req1', 'declined')">Decline</button>
-                    </div>
-                </div>
-
-                <!-- Request 2 -->
-                <div class="request-item" id="req2">
-                    <div class="req-header">
-                        <div class="req-avatar" style="background:#fab1a0;">RV</div>
-                        <div>
-                            <div style="font-weight:bold;">Rahul V.</div>
-                            <small>Student • New User</small>
-                        </div>
-                    </div>
-                    <div class="req-details">
-                        <p>Requested: <strong>Sunny Side PG</strong></p>
-                        <small><i class="fas fa-calendar"></i> Move in: 15th Aug (11 Months)</small>
-                    </div>
-                    <div class="req-actions">
-                        <button class="btn-accept" onclick="handleRequest('req2', 'accepted')">Accept</button>
-                        <button class="btn-decline" onclick="handleRequest('req2', 'declined')">Decline</button>
-                    </div>
-                </div>
-
-            </div>
+      <!-- Right: Booking Requests -->
+      <div class="requests-section">
+        <div class="section-header">
+          <div class="section-title">Booking Requests</div>
         </div>
 
+        <!-- Dynamic requests will load here -->
+        <div class="requests-container" id="bookingRequests">
+          <p style="color: #888; font-size: 0.9rem">No booking requests yet.</p>
+        </div>
+      </div>
     </div>
 
+    
+    <div class="overlay" id="successOverlay">
+      <div class="success-modal">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h2 id="successTitle">Success!</h2>
+        <p id="successMessage" style="color: var(--text-light); margin: 10px 0 20px">
+          Operation completed successfully.
+        </p>
+        <button class="ok_btn" id="successBtn" onclick="window.location.href='../MyBooking/MyBooking.html'">
+          Ok
+        </button>
+      </div>
+    </div>
+
+    <div class="overlay" id="confirmOverlay" style="display: none;">
+      <div class="success-modal">
+        <div class="success-icon" style="background: rgb(245, 234, 234);">
+        <i class="fas fa-exclamation"></i>
+        </div>
+
+      <h2>Are you sure?</h2>
+
+    <p style="color: var(--text-light); margin: 10px 0 20px">
+      This action cannot be undone.
+    </p>
+
+    <div style="display:flex; gap:12px; justify-content:center;">
+      <button class="ok_btn" onclick="confirmYes()">
+        Yes, Delete
+      </button>
+      <button
+        class="ok_btn"
+        style="background:#ccc;color:#333;"
+        onclick="confirmNo()"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+
+    
+
     <script src="HostDashboard.js"></script>
-</body>
+  </body>
 </html>

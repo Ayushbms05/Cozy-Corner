@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | My Bookings</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="MyBooking.css   " />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo" id="logo">
+        <i class="fas fa-couch"></i>
+        <span>Cozy<span class="corner">Corner</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="../StudentHome/StudentHome.html" class="active">Home</a>
+        <a href="#">Find PGs</a>
+        <a href="#">Find Flats</a>
+      </div>
+      <div class="profile-wrapper">
+        <div class="user-profile" onclick="toggleMenu()">
+          <span id="studentName">Hello</span>
+          <div class="profile" id="studentAvatar">S</div>
+        </div>
+
+        <div id="menu" class="menu">
+          <a href="../StudentProfile/StudentProfile.html">
+            <i class="fa-solid fa-user"></i> Profile
+          </a>
+          <a href="#">
+            <i class="fa-solid fa-calendar-check"></i> My Bookings
+          </a>
+          <a href="../Wishlist/Wishlist.html">
+            <i class="fa-solid fa-heart"></i> Wishlist
+          </a>
+          <a href="#"> <i class="fa-solid fa-gear"></i> Settings </a>
+          <a href="#" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>My Bookings</h1>
+        <p>Manage your upcoming stays and view history.</p>
+      </div>
+
+      <div class="tabs">
+        <button
+          class="tab-btn active"
+          onclick="filterBookings('upcoming', this)"
+        >
+          Upcoming
+        </button>
+        <button class="tab-btn" onclick="filterBookings('past', this)">
+          Completed
+        </button>
+        <button class="tab-btn" onclick="filterBookings('cancelled', this)">
+          Cancelled
+        </button>
+      </div>
+
+      <div id="bookingList"></div>
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state">
+        <i class="fas fa-suitcase-rolling"></i>
+        <h3>No bookings found here</h3>
+        <p>Looks like you haven't booked anything in this category yet.</p>
+      </div>
+    </div>
+
+    <script src="MyBooking.js"></script>
+  </body>
+</html>

@@ -32,24 +32,77 @@ function showNotification(message) {
   }, 3000);
 }
 
-function handleLogin(e) {
+async function handleLogin(e) {
   e.preventDefault();
-  window.location.href="../StudentHome/StudentHome.html";
-  // In a real app, you would send data to a server here
-  // showNotification("Welcome back! Logging you in...");
-  // Simulate redirection
-  // console.log("Login submitted");
+
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  try {
+    const res = await fetch("http://localhost:5000/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        password,
+        role: "student"
+      })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      showNotification(data.message || "Login failed");
+      return;
+    }
+
+    // ✅ SAVE TOKEN FIRST
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("role", data.role);
+
+    // ✅ THEN redirect
+    window.location.href = "../StudentHome/StudentHome.html";
+
+  } catch (err) {
+    showNotification("Server error");
+  }
 }
 
-function handleSignup(e) {
+
+async function handleSignup(e) {
   e.preventDefault();
-  window.location.href="../StudentHome/StudentHome.html";
-  // In a real app, verify the file upload and send data
-  // showNotification("Documents uploaded! Verification pending.");
-  // Simulate account creation
-  // console.log("Signup submitted with verification documents");
+
+  const name = document.getElementById("signupName").value;
+  const phone = document.getElementById("signupPhone").value;
+  const email = document.getElementById("signupEmail").value;
+  const password = document.getElementById("signupPassword").value;
+
+  try {
+    const res = await fetch("http://localhost:5000/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        password,
+        role: "student",
+      }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      showNotification(data.message || "Signup failed");
+      return;
+    }
+
+    showNotification("Account created! Please login.");
+
+    switchForm("login");
+  } catch (err) {
+    showNotification("Server error. Try again.");
+  }
 }
 
-function HostLogin(){
-  window.location.href="../HostLogin/HostLogin.html";
-}
+

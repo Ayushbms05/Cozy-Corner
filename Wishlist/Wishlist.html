@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | My Wishlist</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Wishlist.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo" id="logo">
+        <i class="fas fa-couch"></i>
+        <span>Cozy<span class="corner">Corner</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="../StudentHome/StudentHome.html" class="active">Home</a>
+        <a href="#">Find PGs</a>
+        <a href="#">Find Flats</a>
+      </div>
+      <div class="profile-wrapper">
+        <div class="user-profile" onclick="toggleMenu()">
+          <span id="studentName">Hello</span>
+          <div class="profile" id="studentAvatar">S</div>
+        </div>
+
+        <div id="menu" class="menu">
+          <a href="../StudentProfile/StudentProfile.html">
+            <i class="fa-solid fa-user"></i> Profile
+          </a>
+          <a href="../MyBooking/MyBooking.html">
+            <i class="fa-solid fa-calendar-check"></i> My Bookings
+          </a>
+          <a href="../Wishlist/Wishlist.html">
+            <i class="fa-solid fa-heart"></i> Wishlist
+          </a>
+          <a href="#"> <i class="fa-solid fa-gear"></i> Settings </a>
+          <a href="#" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="page-header">
+        <div>
+          <h1>My Wishlist</h1>
+          <p>Saved properties you want to check out later.</p>
+        </div>
+        <p id="countText">2 Items</p>
+      </div>
+
+      <div class="wishlist-grid" id="wishlistGrid">
+        <!-- cards will be injected here -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state">
+        <i class="fas fa-heart-broken"></i>
+        <h3>Your wishlist is empty</h3>
+        <p>Start exploring and heart the places you love!</p>
+        <a href="../StudentHome/StudentHome.html" class="btn-browse">Browse Properties</a>
+      </div>
+    </div>
+    <footer>
+      <p>
+        &copy; 2025 Cozy Corner. Made with
+        <i class="fas fa-heart" style="color: var(--primary-color)"></i> for
+        Students.
+      </p>
+    </footer>
+
+    <script src="Wishlist.js"></script>
+  </body>
+</html>

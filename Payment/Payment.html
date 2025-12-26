@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | Secure Payment</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Payment.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo" id="logo">
+        <i class="fas fa-couch"></i>
+        <span>Cozy<span class="corner">Corner</span></span>
+      </div>
+      <div class="profile-wrapper">
+        <div class="user-profile" onclick="toggleMenu()">
+          <span id="studentName">Hello</span>
+          <div class="profile" id="studentAvatar">S</div>
+        </div>
+
+        <div id="menu" class="menu">
+          <a href="../StudentProfile/StudentProfile.html">
+            <i class="fa-solid fa-user"></i> Profile
+          </a>
+          <a href="../MyBooking/MyBooking.html">
+            <i class="fa-solid fa-calendar-check"></i> My Bookings
+          </a>
+          <a href="../Wishlist/Wishlist.html">
+            <i class="fa-solid fa-heart"></i> Wishlist
+          </a>
+          <a href="#"> <i class="fa-solid fa-gear"></i> Settings </a>
+          <a href="#" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Left: Payment Methods -->
+      <div class="payment-section">
+        <div class="section-header">
+          <h1>Select Payment Method</h1>
+          <p>Choose how you want to pay for your stay.</p>
+        </div>
+
+        <div class="payment-methods">
+          <div class="method-tabs">
+            <button class="tab-btn active" onclick="switchTab('card')">
+              <i class="fas fa-credit-card"></i> Card
+            </button>
+            <button class="tab-btn" onclick="switchTab('upi')">
+              <i class="fas fa-qrcode"></i> UPI
+            </button>
+            <button class="tab-btn" onclick="switchTab('netbanking')">
+              <i class="fas fa-university"></i> Net Banking
+            </button>
+          </div>
+
+          <!-- Card -->
+          <div id="card" class="tab-content active">
+            <div id="card-form">
+              <div class="form-group">
+                <label>Card Number</label>
+                <input
+                  type="text"
+                  placeholder="0000 0000 0000 0000"
+                  maxlength="19"
+                />
+              </div>
+              <div class="form-group">
+                <label>Card Holder Name</label>
+                <input type="text" placeholder="Name on Card" />
+              </div>
+              <div class="row-2">
+                <div class="form-group">
+                  <label>Expiry Date</label>
+                  <input type="text" placeholder="MM/YY" maxlength="5" />
+                </div>
+                <div class="form-group">
+                  <label>CVV</label>
+                  <input type="password" placeholder="123" maxlength="3" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- UPI -->
+          <div id="upi" class="tab-content">
+            <div class="upi-box">
+              <div class="qr-placeholder">
+                <i class="fas fa-qrcode" style="font-size: 3rem"></i>
+              </div>
+              <p>Scan QR code using any UPI App</p>
+              <p style="margin: 10px 0; color: #ccc">- OR -</p>
+              <div class="form-group">
+                <input type="text" placeholder="Enter UPI ID" />
+              </div>
+              <button class="btn btn-outline">Verify</button>
+            </div>
+          </div>
+
+          <!-- Net Banking -->
+          <div id="netbanking" class="tab-content">
+            <div class="form-group">
+              <label>Select Bank</label>
+              <select>
+                <option>HDFC Bank</option>
+                <option>SBI</option>
+                <option>ICICI Bank</option>
+                <option>Axis Bank</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Pay Button -->
+          <button class="pay-btn" id="payButton" onclick="processPayment()">
+            Pay
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Order Summary -->
+      <div class="order-summary">
+        <h2 style="margin-bottom: 20px">Order Summary</h2>
+
+        <div class="property-brief">
+          <div class="prop-img">
+            <img id="propertyImage" alt="Property Image" />
+          </div>
+          <div class="prop-info">
+            <h3 id="propertyTitle"></h3>
+            <p id="propertyLocation"></p>
+            <p style="font-size: 0.8rem; margin-top: 5px">
+              <i class="fas fa-calendar-alt"></i>
+              <span id="stayDuration"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="price-breakdown">
+          <div class="price-row">
+            <span>First Month Rent</span>
+            <span id="rentAmount"></span>
+          </div>
+          <div class="price-row">
+            <span>Security Deposit</span>
+            <span id="depositAmount"></span>
+          </div>
+          <div class="price-row">
+            <span>Service Fee</span>
+            <span id="serviceFee"></span>
+          </div>
+          <div class="price-row">
+            <span>Platform Discount</span>
+            <span id="discountAmount"></span>
+          </div>
+
+          <div class="total-row">
+            <span>Total Payable</span>
+            <span id="totalAmount"></span>
+          </div>
+        </div>
+
+        <div class="secure-badge">
+          <i class="fas fa-lock"></i> SSL Secured Payment
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="overlay" id="successOverlay">
+      <div class="success-modal">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h2>Payment Successful!</h2>
+        <p style="color: var(--text-light); margin: 10px 0 20px">
+          Your booking at <strong id="successPropertyName"></strong> is
+          confirmed.
+        </p>
+        <button class="go_to_my_booking_btn" onclick="window.location.href='../MyBooking/MyBooking.html'">
+          Go to My Bookings
+        </button>
+      </div>
+    </div>
+
+    <script src="Payment.js"></script>
+  </body>
+</html>
