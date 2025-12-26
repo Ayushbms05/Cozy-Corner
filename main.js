@@ -1,3 +1,4 @@
+const BASE_URL = "https://cozycorner-backend-peay.onrender.com";
 // Landing page must always be public
 localStorage.removeItem("token");
 localStorage.removeItem("role");
@@ -65,7 +66,7 @@ pills.forEach((pill) => {
 //fetch properties
 async function loadLandingProperties() {
   try {
-    const res = await fetch("http://localhost:5000/api/properties");
+    const res = await fetch(`${BASE_URL}/api/properties`);
     const properties = await res.json();
 
     console.log("Fetched properties:", properties);

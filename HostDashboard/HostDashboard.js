@@ -1,3 +1,4 @@
+const BASE_URL = "https://cozycorner-backend-peay.onrender.com";
 //protect host dashboard
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
@@ -9,7 +10,7 @@ if (!token || role !== "host") {
 //load properties of the host
 async function loadMyProperties() {
   try {
-    const res = await fetch("http://localhost:5000/api/properties/my", {
+    const res = await fetch(`${BASE_URL}/api/properties/my`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -65,7 +66,7 @@ loadMyProperties();
 //fetch booking request
 async function loadBookingRequests() {
   try {
-    const res = await fetch("http://localhost:5000/api/bookings/host", {
+    const res = await fetch(`${BASE_URL}/api/bookings/host`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -135,7 +136,7 @@ async function loadBookingRequests() {
 //updateBookingStatus
 async function updateBookingStatus(id, status) {
   try {
-    const res = await fetch(`http://localhost:5000/api/bookings/${id}/status`, {
+    const res = await fetch(`${BASE_URL}/api/bookings/${id}/status`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -165,7 +166,7 @@ function deleteProperty(id) {
   showConfirmPopup(async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/properties/${id}`,
+        `${BASE_URL}/api/properties/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -195,7 +196,7 @@ function deleteProperty(id) {
 
 async function loadHostInfo() {
   try {
-    const res = await fetch("http://localhost:5000/users/me", {
+    const res = await fetch(`${BASE_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

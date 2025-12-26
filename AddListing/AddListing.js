@@ -1,3 +1,4 @@
+const BASE_URL = "https://cozycorner-backend-peay.onrender.com";
 const params = new URLSearchParams(window.location.search);
 const editId = params.get("edit");
 
@@ -8,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const res = await fetch(
-      `http://localhost:5000/api/properties/${editId}`
+      `${BASE_URL}/api/properties/${editId}`
     );
     const data = await res.json();
 
@@ -73,8 +74,8 @@ async function handleSubmit(e) {
     const token = localStorage.getItem("token");
 
     const url = editId
-      ? `http://localhost:5000/api/properties/${editId}`
-      : "http://localhost:5000/api/properties";
+      ? `${BASE_URL}/api/properties/${editId}`
+      : `${BASE_URL}/api/properties`;
 
     const method = editId ? "PUT" : "POST";
 

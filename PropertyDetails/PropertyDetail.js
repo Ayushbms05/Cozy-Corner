@@ -1,3 +1,4 @@
+const BASE_URL = "https://cozycorner-backend-peay.onrender.com";
 const params = new URLSearchParams(window.location.search);
 const propertyId = params.get("id");
 
@@ -9,7 +10,7 @@ let images = [];
 async function loadProperty() {
   try {
     const res = await fetch(
-      `http://localhost:5000/api/properties/${propertyId}`
+      `${BASE_URL}/api/properties/${propertyId}`
     );
     const property = await res.json();
 
@@ -136,7 +137,7 @@ async function requestBooking() {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/api/bookings", {
+    const res = await fetch(`${BASE_URL}/api/bookings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -178,7 +179,7 @@ async function checkBookingStatus() {
 
   try {
     const res = await fetch(
-      `http://localhost:5000/api/bookings/my/${propertyId}`,
+      `${BASE_URL}/api/bookings/my/${propertyId}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -242,7 +243,7 @@ document.addEventListener("click", function (e) {
 //load student info
 async function loadStudentInfo() {
   try {
-    const res = await fetch("http://localhost:5000/users/me", {
+    const res = await fetch(`${BASE_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

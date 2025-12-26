@@ -1,3 +1,4 @@
+const BASE_URL = "https://cozycorner-backend-peay.onrender.com";
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
@@ -49,7 +50,7 @@ function getAmenitiesHTML(amenities) {
 //FETCH PROPERTIES
 async function fetchProperties() {
   try {
-    const res = await fetch("http://localhost:5000/api/properties");
+    const res = await fetch(`${BASE_URL}/api/properties`);
     const data = await res.json();
     allProperties = data;
     renderProperties(allProperties);
@@ -62,7 +63,7 @@ async function fetchProperties() {
 //load studnet info
 async function loadStudentInfo() {
   try {
-    const res = await fetch("http://localhost:5000/users/me", {
+    const res = await fetch(`${BASE_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -169,7 +170,7 @@ async function attachHeartLogic() {
   let wishlistIds = [];
 
   if (token) {
-    const res = await fetch("http://localhost:5000/api/wishlist", {
+    const res = await fetch(`${BASE_URL}/api/wishlist`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -197,7 +198,7 @@ async function attachHeartLogic() {
         return;
       }
 
-      await fetch(`http://localhost:5000/api/wishlist/${propertyId}`, {
+      await fetch(`${BASE_URL}/api/wishlist/${propertyId}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

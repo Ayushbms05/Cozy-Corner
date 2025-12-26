@@ -1,3 +1,4 @@
+const BASE_URL = "https://cozycorner-backend-peay.onrender.com";
 const token = localStorage.getItem("token");
 
 if (!token) {
@@ -17,7 +18,7 @@ let bookingData = null;
 
 async function loadBookingDetails() {
   try {
-    const res = await fetch(`http://localhost:5000/api/bookings/${bookingId}`, {
+    const res = await fetch(`${BASE_URL}/api/bookings/${bookingId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -87,7 +88,7 @@ function updateOrderSummary(b) {
 //load studen info
 async function loadStudentInfo() {
   try {
-    const res = await fetch("http://localhost:5000/users/me", {
+    const res = await fetch(`${BASE_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -159,7 +160,7 @@ async function processPayment(e) {
   btn.disabled = true;
 
   try {
-    const res = await fetch(`http://localhost:5000/api/bookings/pay`, {
+    const res = await fetch(`${BASE_URL}/api/bookings/pay`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

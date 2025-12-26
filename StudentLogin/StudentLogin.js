@@ -1,3 +1,4 @@
+const BASE_URL = "https://cozycorner-backend-peay.onrender.com";
 // Function to switch between Login and Signup forms
 function switchForm(formType) {
   const loginForm = document.getElementById("loginForm");
@@ -39,7 +40,7 @@ async function handleLogin(e) {
   const password = document.getElementById("loginPassword").value;
 
   try {
-    const res = await fetch("http://localhost:5000/auth/login", {
+    const res = await fetch(`${BASE_URL}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -78,7 +79,7 @@ async function handleSignup(e) {
   const password = document.getElementById("signupPassword").value;
 
   try {
-    const res = await fetch("http://localhost:5000/auth/signup", {
+    const res = await fetch(`${BASE_URL}/auth/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

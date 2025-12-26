@@ -1,3 +1,4 @@
+const BASE_URL = "https://cozycorner-backend-peay.onrender.com";
 function getAmenitiesHTML(amenities) {
   if (!amenities) return "";
 
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadWishlist() {
   try {
-    const res = await fetch("http://localhost:5000/api/wishlist", {
+    const res = await fetch(`${BASE_URL}/api/wishlist`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -114,7 +115,7 @@ function renderWishlist(properties) {
     card.querySelector(".remove-btn").addEventListener("click", async (e) => {
       e.stopPropagation(); // 🔥 IMPORTANT
 
-      await fetch(`http://localhost:5000/api/wishlist/${p._id}`, {
+      await fetch(`${BASE_URL}/api/wishlist/${p._id}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -131,7 +132,7 @@ function renderWishlist(properties) {
 //load student info
 async function loadStudentInfo() {
   try {
-    const res = await fetch("http://localhost:5000/users/me", {
+    const res = await fetch(`${BASE_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

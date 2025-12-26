@@ -1,3 +1,4 @@
+const BASE_URL = "https://cozycorner-backend-peay.onrender.com";
 function filterBookings(type, btn) {
   // Update Tab UI
   document
@@ -55,7 +56,7 @@ document.addEventListener("click", function (e) {
 
 async function loadStudentInfo() {
   try {
-    const res = await fetch("http://localhost:5000/users/me", {
+    const res = await fetch(`${BASE_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -78,7 +79,7 @@ async function loadStudentInfo() {
 }
 async function loadMyBookings() {
   try {
-    const res = await fetch("http://localhost:5000/api/bookings/student", {
+    const res = await fetch(`${BASE_URL}/api/bookings/student`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
