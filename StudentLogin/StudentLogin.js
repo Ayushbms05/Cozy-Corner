@@ -19,6 +19,19 @@ function switchForm(formType) {
   }
 }
 
+function isValidPhone(phone) {
+  return /^[0-9]{10}$/.test(phone);
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidPassword(password) {
+  return password.length >= 8;
+}
+
+
 // Show a custom notification message
 function showNotification(message) {
   const notify = document.getElementById("notification");
@@ -46,8 +59,8 @@ async function handleLogin(e) {
       body: JSON.stringify({
         email,
         password,
-        role: "student"
-      })
+        role: "student",
+      }),
     });
 
     const data = await res.json();
@@ -57,18 +70,16 @@ async function handleLogin(e) {
       return;
     }
 
-    // ✅ SAVE TOKEN FIRST
+    // SAVE TOKEN FIRST
     localStorage.setItem("token", data.token);
     localStorage.setItem("role", data.role);
 
-    // ✅ THEN redirect
+    // THEN redirect
     window.location.href = "../StudentHome/StudentHome.html";
-
   } catch (err) {
     showNotification("Server error");
   }
 }
-
 
 async function handleSignup(e) {
   e.preventDefault();
@@ -77,6 +88,21 @@ async function handleSignup(e) {
   const phone = document.getElementById("signupPhone").value;
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
+
+  //  VALIDATIONS
+  if (!isValidPhone(phone)) {
+    showNotification("Phone number must be exactly 10 digits");
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    showNotification("Please enter a valid email address");
+    return;
+  }
+  if (!isValidPassword(password)) {
+    showNotification("Password must be at least 8 characters long");
+    return;
+  }
 
   try {
     const res = await fetch(`${BASE_URL}/auth/signup`, {
@@ -105,5 +131,3 @@ async function handleSignup(e) {
     showNotification("Server error. Try again.");
   }
 }
-
-

@@ -279,6 +279,29 @@ function confirmNo() {
   document.getElementById("confirmOverlay").style.display = "none";
   confirmCallback = null;
 }
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("show");
+}
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("role");
+  localStorage.removeItem("user"); // if you ever store it
+  localStorage.clear(); // safest for now
+  window.location.href = "../HostLogin/HostLogin.html";
+}
+
+document.addEventListener("click", function (e) {
+  const menu = document.getElementById("menu");
+  const profileWrapper = document.querySelector(".profile-wrapper");
+
+  if (!profileWrapper.contains(e.target)) {
+    menu.classList.remove("show");
+  }
+});
+
+document.getElementById("logo").addEventListener("click", () => {
+  window.location.href = "HostDashboard.html";
+});
 
 
 loadBookingRequests();

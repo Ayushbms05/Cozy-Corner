@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | Booking Requests</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="BookingRequest.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo" id="logo">
+        <i class="fas fa-home"></i>
+        <span>Cozy <span class="corner">Corner</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">My Listings</a>
+        <a href="#">Messages</a>
+        <a href="#">Wallet</a>
+      </div>
+
+      <div class="profile-wrapper">
+        <div class="user-profile" onclick="toggleMenu()">
+          <span id="hostName">Host</span>
+          <span class="role-badge">Host</span>
+          <div class="avatar" id="hostAvatar">H</div>
+        </div>
+
+        <div id="menu" class="menu">
+          <a href="../HostProfile/HostProfile.html">
+            <i class="fa-solid fa-user"></i> Profile
+          </a>
+          <a href="../HostListing/HostListing.html">
+            <i class="fa-solid fa-list"></i> My Listings
+          </a>
+          <a href="../BookinRequest/BookingRequest.html">
+            <i class="fa-solid fa-hand"></i>Requests
+          </a>
+          <a href="#" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Booking Requests</h1>
+        <p class="subtitle">Manage incoming applications from students.</p>
+      </div>
+
+      <!-- Tabs (unchanged) -->
+      <div class="tabs">
+        <button class="tab-btn active">
+          Pending <span class="badge" id="pendingCount">0</span>
+        </button>
+        <button class="tab-btn">History</button>
+      </div>
+
+      <!-- ✅ SAME container, now fully dynamic -->
+      <div class="requests-list" id="requestList">
+        <!-- Booking request cards will be injected here by JS -->
+      </div>
+
+      <!-- Empty state (unchanged) -->
+      <div class="empty-state" id="emptyState" style="display: none">
+        <i class="fas fa-inbox"></i>
+        <h3>All caught up!</h3>
+        <p>You have no pending booking requests.</p>
+      </div>
+    </div>
+
+    <script src="BookingRequest.js"></script>
+  </body>
+</html>

@@ -37,6 +37,31 @@ router.post("/", protect, async (req, res) => {
   }
 });
 
+// Host fetches detailed booking requests (FOR BOOKING REQUEST PAGE ONLY)
+router.get(
+  "/host/requests",
+  protect,
+  restrictTo("host"),
+  async (req, res) => {
+    try {
+      const bookings = await Booking.find({ host: req.user.id })
+        .populate("student", "name college year avatar phone")
+        .populate(
+          "property",
+          "title address city occupancyType images rent"
+        )
+        .sort({ createdAt: -1 });
+
+      res.json(bookings);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({
+        message: "Failed to fetch detailed booking requests",
+      });
+    }
+  }
+);
+
 // Host fetches booking requests
 router.get("/host", protect, restrictTo("host"), async (req, res) => {
   const bookings = await Booking.find({ host: req.user.id })
@@ -45,6 +70,9 @@ router.get("/host", protect, restrictTo("host"), async (req, res) => {
 
   res.json(bookings);
 });
+
+
+
 
 // Host approves / rejects
 router.patch("/:id/status", protect, restrictTo("host"), async (req, res) => {

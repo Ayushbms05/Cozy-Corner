@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | Host Profile</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="HostProfile.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo" id="logo">
+        <i class="fas fa-home"></i>
+        <span>Cozy <span class="corner">Corner</span>
+      </div>
+      <div class="nav-links">
+        <a href="HostDashboard.html" class="active">Dashboard</a>
+        <a href="../HostListing/HostListing.html">My Listings</a>
+        <a href="#">Messages</a>
+        <a href="#">Wallet</a>
+      </div>
+      <!-- <div class="user-profile">
+        <div class="avatar" id="navAvatar">R</div>
+      </div> -->
+      <div class="profile-wrapper">
+        <div class="user-profile" onclick="toggleMenu()">
+          <span id="hostName">Host</span>
+          <span class="role-badge">Host</span>
+          <div class="avatar" id="navAvatar">H</div>
+        </div>
+
+        <div id="menu" class="menu">
+          <a href="../HostProfile/HostProfile.html">
+            <i class="fa-solid fa-user"></i> Profile
+          </a>
+          <a href="../HostListing/HostListing.html">
+            <i class="fa-solid fa-list"></i> My Listings
+          </a>
+          <a href="../BookinRequest/BookingRequest.html">
+            <i class="fa-solid fa-hand"></i>Requests
+          </a>
+          <a href="#" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="profile-sidebar">
+        <div class="profile-pic"><i class="fas fa-user-tie"></i></div>
+        <div class="user-name" id="sidebarName"></div>
+        <div class="user-status"><i class="fas fa-check-circle"></i> Host</div>
+
+        <div class="menu-list">
+          <div class="menu-item active">
+            <i class="fas fa-user-edit"></i> Edit Profile
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-wallet"></i> Payout Settings
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-file-contract"></i> Legal Documents
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-cog"></i> Account Settings
+          </div>
+          <div class="menu-item" style="color: #ff6b6b" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="profile-content">
+        <!-- Personal Info -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Personal Details</div>
+          </div>
+          <form id="profileForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="fullName" />
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" />
+              </div>
+              <div class="form-group full-width">
+                <label>Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  disabled
+                  style="background: #f9f9f9; color: #999"
+                />
+              </div>
+            </div>
+            <button class="btn-save" id="saveBtn" disabled>Save Changes</button>
+          </form>
+        </div>
+
+        <!-- Payout Methods -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Payout Method</div>
+            <button
+              style="
+                border: none;
+                background: transparent;
+                color: var(--secondary-color);
+                font-weight: bold;
+                cursor: pointer;
+              "
+            >
+              + Add New
+            </button>
+          </div>
+
+          <div class="bank-card">
+            <div class="bank-name">HDFC BANK</div>
+            <div class="account-num">•••• •••• •••• 8829</div>
+            <div class="holder-name">Rajesh Kumar</div>
+            <i class="fas fa-university"></i>
+          </div>
+          <p
+            style="
+              color: var(--text-light);
+              font-size: 0.9rem;
+              margin-top: 10px;
+            "
+          >
+            <i class="fas fa-check-circle" style="color: var(--success)"></i>
+            Default payout method for receiving rent.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="successOverlay">
+      <div class="success-modal">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h2 id="successTitle">Success!</h2>
+        <p
+          id="successMessage"
+          style="color: var(--text-light); margin: 10px 0 20px"
+        >
+          Operation completed successfully.
+        </p>
+        <button
+          class="ok_btn"
+          id="successBtn"
+          onclick="window.location.href=``"
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+    <script src="HostProfile.js"></script>
+  </body>
+</html>

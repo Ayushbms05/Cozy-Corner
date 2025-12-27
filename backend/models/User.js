@@ -6,6 +6,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    phone: {
+      type: String,
+      default: "",
+    },
     email: {
       type: String,
       required: true,
@@ -14,6 +18,10 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+    },
+    college: {
+      type: String,
+      default: "",
     },
     role: {
       type: String,
@@ -24,7 +32,6 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-
     wishlist: [
       {
         type: mongoose.Schema.Types.ObjectId,

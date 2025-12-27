@@ -1,6 +1,6 @@
 :root {
   --primary-color: #ff6b6b;
-  --secondary-color: #ff9f43;
+  --secondary-color: #ff9f43; /* Host Orange */
   --text-dark: #2d3436;
   --text-light: #636e72;
   --bg-color: #f7f1e3;
@@ -48,20 +48,19 @@ nav {
   font-size: 26px;
   padding: 10px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  background: linear-gradient(135deg, #f98533, #f9a272);
   color: white;
   box-shadow: 0 6px 18px rgba(255, 107, 107, 0.45);
 }
 
 .logo span {
   color: var(--text-dark);
-  letter-spacing: 0.5px;
+  
 }
 
-.logo .corner {
-  color: var(--primary-color); /* #ff6b6b */
+.logo .corner{
+  color: var(--secondary-color);
 }
-
 
 .nav-links {
   display: flex;
@@ -77,7 +76,11 @@ nav {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.profile-wrapper {
+  position: relative;
 }
 
 .user-profile {
@@ -86,36 +89,96 @@ nav {
   gap: 10px;
   padding: 6px 14px;
   border-radius: 30px;
-  background: linear-gradient(135deg, #fff1f1, #ffe3e3);
-  box-shadow: 0 4px 14px rgba(255, 107, 107, 0.3);
+  background: linear-gradient(135deg, #fff3e8, #ffe6cf);
+  box-shadow: 0 4px 14px rgba(255, 140, 0, 0.25);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .user-profile:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.45);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.35);
 }
 
-#studentName {
-  font-weight: 700;
-  font-size: 14.5px;
-  color: var(--primary-color);
-  white-space: nowrap;
-}
 
 .avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff6b6b, #ff4d4d);
+  background: linear-gradient(135deg, #ff8c00, #ff6a00);
   color: #fff;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.5);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 3px 10px rgba(255, 106, 0, 0.5);
+}
+
+.user-profile span,
+.hostName {
+  font-weight: 800;
+  font-size: 14.5px;
+  color: #ff7a00;
+}
+
+.role-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: #ffe3c2;
+  color: #ff7a00;
+  font-weight: 600;
+}
+.menu {
+  position: absolute;
+  top: 55px; 
+  right: 0;
+  width: 200px;
+  background: linear-gradient(135deg, #fff3e8, #ffe6cf);
+  border-radius: 16px;
+  padding: 10px 0;
+  box-shadow: 0 12px 30px rgba(255, 107, 107, 0.25);
+  display: none;
+  z-index: 1000;
+}
+
+.menu.show {
+  display: block;
+  animation: dropdownFade 0.25s ease;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.menu a:hover {
+  background: rgba(255, 107, 107, 0.12);
+  color: var(--primary-color);
+}
+
+.menu i {
+  color: #ff7a00;
 }
 
 /* --- Profile Layout --- */
@@ -128,7 +191,7 @@ nav {
   gap: 30px;
 }
 
-/* Left Sidebar */
+/* Sidebar */
 .profile-sidebar {
   background: white;
   padding: 30px;
@@ -141,14 +204,14 @@ nav {
 .profile-pic {
   width: 120px;
   height: 120px;
-  background: #eee;
+  background: #ffeaa7;
   border-radius: 50%;
   margin: 0 auto 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
-  color: #ccc;
+  color: white;
   border: 4px solid var(--bg-color);
 }
 
@@ -187,12 +250,12 @@ nav {
 
 .menu-item.active,
 .menu-item:hover {
-  background: #fff0f0;
-  color: var(--primary-color);
+  background: #fff5e6; /* Light orange */
+  color: var(--secondary-color);
   font-weight: 600;
 }
 
-/* Right Content Area */
+/* Right Content */
 .profile-content {
   display: flex;
   flex-direction: column;
@@ -210,6 +273,9 @@ nav {
   margin-bottom: 25px;
   border-bottom: 1px solid #eee;
   padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card-title {
@@ -237,7 +303,8 @@ nav {
   color: var(--text-dark);
 }
 
-.form-group input {
+.form-group input,
+.form-group textarea {
   width: 100%;
   padding: 12px;
   border: 2px solid #eee;
@@ -247,36 +314,14 @@ nav {
   transition: 0.3s;
 }
 
-.form-group input:focus {
-  border-color: var(--primary-color);
-  background: #fffbfb;
-}
-
-.college-input-wrapper {
-  position: relative;
-}
-
-.college-input-wrapper i {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--primary-color);
-}
-
-.college-input-wrapper input {
-  padding-left: 40px;
+.form-group input:focus,
+.form-group textarea:focus {
   border-color: var(--secondary-color);
-}
-
-.helper-text {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  margin-top: 5px;
+  background: #fffdfa;
 }
 
 .btn-save {
-  background: var(--primary-color);
+  background: var(--secondary-color);
   color: white;
   border: none;
   padding: 12px 30px;
@@ -287,60 +332,53 @@ nav {
   transition: 0.3s;
 }
 
-.btn-save:hover {
-  background: #ff5252;
-  transform: translateY(-2px);
+.btn-save:hover:not(:disabled) {
+  background: #ff8c2f;
+  transform: translateY(-1px);
 }
 
+/* 🔒 Disabled state */
 .btn-save:disabled {
-  background-color: #ccc;       
+  background: #e0e0e0;
+  color: #9e9e9e;
   cursor: not-allowed;
-  opacity: 0.6;
   box-shadow: none;
+  transform: none;
+  opacity: 0.7;
 }
 
-.btn-save:disabled:hover {
-  background-color: #ccc;
-}
-
-
-/* Booking History Item */
-.booking-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 15px;
-  border: 1px solid #eee;
+/* Bank Account Box */
+.bank-card {
+  background: linear-gradient(135deg, #2d3436, #000);
+  color: white;
+  padding: 20px;
   border-radius: 15px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.bank-card i {
+  position: absolute;
+  right: 20px;
+  bottom: -10px;
+  font-size: 5rem;
+  opacity: 0.1;
+}
+.bank-name {
+  font-size: 0.9rem;
+  opacity: 0.8;
   margin-bottom: 15px;
 }
-
-.b-img {
-  width: 60px;
-  height: 60px;
-  background: #fab1a0;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
+.account-num {
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  font-family: monospace;
 }
-
-.b-info {
-  flex: 1;
-}
-.b-title {
-  font-weight: 700;
+.holder-name {
   font-size: 1rem;
-}
-.b-date {
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
-.b-status {
-  font-size: 0.8rem;
   font-weight: bold;
-  color: var(--secondary-color);
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
@@ -354,7 +392,6 @@ nav {
     display: none;
   }
 }
-
 /* Success Overlay */
 .overlay {
   position: fixed;

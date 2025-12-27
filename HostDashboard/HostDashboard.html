@@ -25,16 +25,33 @@
       </div>
 
       <div class="nav-links">
-        <a href="#" class="active">Dashboard</a>
-        <a href="#">My Listings</a>
+        <a href="HostDashboard.html" class="active">Dashboard</a>
+        <a href="../HostListing/HostListing.html">My Listings</a>
         <a href="#">Messages</a>
         <a href="#">Wallet</a>
       </div>
 
-      <div class="user-profile">
-        <span id="hostName">Host</span>
-        <span class="role-badge">Host</span>
-        <div class="avatar" id="hostAvatar">H</div>
+      <div class="profile-wrapper">
+        <div class="user-profile" onclick="toggleMenu()">
+          <span id="hostName">Host</span>
+          <span class="role-badge">Host</span>
+          <div class="avatar" id="hostAvatar">H</div>
+        </div>
+
+        <div id="menu" class="menu">
+          <a href="../HostProfile/HostProfile.html">
+            <i class="fa-solid fa-user"></i> Profile
+          </a>
+          <a href="../HostListing/HostListing.html">
+            <i class="fa-solid fa-list"></i> My Listings
+          </a>
+          <a href="../BookinRequest/BookingRequest.html">
+            <i class="fa-solid fa-hand"></i>Requests
+          </a>
+          <a href="#" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
+        </div>
       </div>
     </nav>
 

@@ -17,6 +17,18 @@ function switchForm(formType) {
     signupBtn.classList.add("active");
   }
 }
+function isValidPhone(phone) {
+  return /^[0-9]{10}$/.test(phone);
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidPassword(password) {
+  return password.length >= 8;
+}
+
 
 function showNotification(message) {
   const notify = document.getElementById("notification");
@@ -25,7 +37,7 @@ function showNotification(message) {
   setTimeout(() => notify.classList.remove("show"), 3000);
 }
 
-// 🔐 HOST LOGIN
+//  HOST LOGIN
 async function handleLogin(e) {
   e.preventDefault();
 
@@ -59,7 +71,7 @@ async function handleLogin(e) {
   }
 }
 
-// 📝 HOST SIGNUP
+//  HOST SIGNUP
 async function handleSignup(e) {
   e.preventDefault();
 
@@ -67,7 +79,22 @@ async function handleSignup(e) {
   const phone = document.getElementById("signupPhone").value;
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
+  //  VALIDATIONS
+  if (!isValidPhone(phone)) {
+    showNotification("Phone number must be exactly 10 digits");
+    return;
+  }
 
+  if (!isValidEmail(email)) {
+    showNotification("Please enter a valid email address");
+    return;
+  }
+  
+  if (!isValidPassword(password)) {
+    showNotification("Password must be at least 8 characters long");
+    return;
+  }
+  
   try {
     const res = await fetch(`${BASE_URL}/auth/signup`, {
       method: "POST",

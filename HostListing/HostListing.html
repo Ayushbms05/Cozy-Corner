@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Corner | My Listings</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="HostListing.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo" id="logo">
+        <i class="fas fa-home"></i>
+        <span>Cozy <span class="corner">Corner</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="../HostDashboard/HostDashboard.html">Dashboard</a>
+        <a href="HostListing.html" class="active">My Listings</a>
+        <a href="#">Messages</a>
+        <a href="#">Wallet</a>
+      </div>
+
+      <div class="profile-wrapper">
+        <div class="user-profile" onclick="toggleMenu()">
+          <span id="hostName">Host</span>
+          <span class="role-badge">Host</span>
+          <div class="avatar" id="hostAvatar">H</div>
+        </div>
+
+        <div id="menu" class="menu">
+          <a href="../HostProfile/HostProfile.html">
+            <i class="fa-solid fa-user"></i> Profile
+          </a>
+          <a href="../HostListing/HostListing.html">
+            <i class="fa-solid fa-list"></i> My Listings
+          </a>
+          <a href="../BookinRequest/BookingRequest.html">
+            <i class="fa-solid fa-hand"></i>Requests
+          </a>
+          <a href="#" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Header -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">My Properties</h1>
+          <p style="color: var(--text-light)">
+            Manage your active listings and property details.
+          </p>
+        </div>
+        <button class="btn-main" onclick="AddListing()">
+          <i class="fas fa-plus"></i> Add New Property
+        </button>
+      </div>
+
+      <!-- Filter/Search -->
+      <div class="controls-bar">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by name or location..."
+            onkeyup="filterListings()"
+          />
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="listings-grid" id="listingsContainer">
+        <!-- Listings will be injected here via JS -->
+      </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+      <div class="modal" style="text-align: center; max-width: 400px">
+        <div
+          style="
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+          "
+        >
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <h2 style="margin-bottom: 10px">Are you sure?</h2>
+        <p style="color: var(--text-light); margin-bottom: 25px">
+          Do you really want to delete this listing? This process cannot be
+          undone.
+        </p>
+        <div class="modal-actions" style="justify-content: center">
+          <button class="btn-cancel" onclick="closeDeleteModal()">
+            Cancel
+          </button>
+          <button
+            class="btn-main"
+            style="background-color: var(--primary-color)"
+            onclick="confirmDelete()"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="HostListing.js"></script>
+  </body>
+</html>

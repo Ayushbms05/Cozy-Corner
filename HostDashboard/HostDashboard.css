@@ -80,6 +80,10 @@ nav {
   color: var(--secondary-color);
 }
 
+.profile-wrapper {
+  position: relative;
+}
+
 .user-profile {
   display: flex;
   align-items: center;
@@ -128,6 +132,56 @@ nav {
   color: #ff7a00;
   font-weight: 600;
 }
+.menu {
+  position: absolute;
+  top: 55px; /* sits just below avatar */
+  right: 0;
+  width: 200px;
+  background: linear-gradient(135deg, #fff3e8, #ffe6cf);
+  border-radius: 16px;
+  padding: 10px 0;
+  box-shadow: 0 12px 30px rgba(255, 107, 107, 0.25);
+  display: none;
+  z-index: 1000;
+}
+
+.menu.show {
+  display: block;
+  animation: dropdownFade 0.25s ease;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.menu a:hover {
+  background: rgba(255, 107, 107, 0.12);
+  color: var(--primary-color);
+}
+
+.menu i {
+  color: #ff7a00;
+}
+
 /* --- Dashboard Header --- */
 .dashboard-header {
   padding: 40px 5% 20px;
