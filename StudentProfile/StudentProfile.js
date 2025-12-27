@@ -132,4 +132,8 @@ function closeSuccessPopup() {
   document.getElementById("successOverlay").style.display = "none";
 }
 
+document.getElementById("logo").addEventListener("click", () => {
+  window.location.href = "StudentHome.html";
+});
+
 loadProfile();

@@ -37,6 +37,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+document.getElementById("fileInput").addEventListener("change", function () {
+  const preview = document.getElementById("imagePreview");
+  preview.innerHTML = "";
+
+  const files = this.files;
+
+  if (!files || files.length === 0) return;
+
+  Array.from(files).forEach(file => {
+    if (!file.type.startsWith("image/")) return;
+
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    img.className = "preview-img";
+
+    preview.appendChild(img);
+  });
+});
+
+
 // SUBMIT (ADD / EDIT)
 async function handleSubmit(e) {
   e.preventDefault();
