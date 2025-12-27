@@ -133,7 +133,7 @@ function closeSuccessPopup() {
 }
 
 document.getElementById("logo").addEventListener("click", () => {
-  window.location.href = "StudentHome.html";
+  window.location.href = "../StudentHome/StudentHome.html";
 });
 
 loadProfile();
