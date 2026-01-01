@@ -1,66 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cozy Corner | Reviews</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="Reviews.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Reviews.css" />
+  </head>
+  <body>
     <nav>
-        <a href="student_home.html" class="logo"><i class="fas fa-couch"></i> Cozy Corner</a>
+      <div class="logo" id="logo">
+        <i class="fas fa-couch"></i>
+        <span>Cozy<span class="corner">Corner</span></span>
+      </div>
     </nav>
 
     <div class="header">
-        <h1>Student Voices</h1>
-        <p>See what your batchmates are saying about their stays.</p>
+      <h1>Student Voices</h1>
+      <p>See what your batchmates are saying about their stays.</p>
     </div>
 
     <div class="reviews-grid">
-        <div class="review-card">
-            <div class="user-info">
-                <div class="avatar" style="background: #fab1a0;">AS</div>
-                <div>
-                    <strong>Amit Singh</strong>
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                </div>
+      <div class="review-card">
+        <div class="user-info">
+          <div class="avatar" style="background: #fab1a0">AS</div>
+          <div>
+            <strong>Amit Singh</strong>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half-alt"></i>
             </div>
-            <p class="review-text">"Found a great PG near North Campus. The food is actually good, which is a rare find! The landlord is chill."</p>
-            <span class="property-tag">Stayed at Sunny Side PG</span>
+          </div>
         </div>
+        <p class="review-text">
+          "Found a great PG near North Campus. The food is actually good, which
+          is a rare find! The landlord is chill."
+        </p>
+        <span class="property-tag">Stayed at Sunny Side PG</span>
+      </div>
 
-        <div class="review-card">
-            <div class="user-info">
-                <div class="avatar" style="background: #81ecec;">NP</div>
-                <div>
-                    <strong>Neha Patel</strong>
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                </div>
+      <div class="review-card">
+        <div class="user-info">
+          <div class="avatar" style="background: #81ecec">NP</div>
+          <div>
+            <strong>Neha Patel</strong>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
             </div>
-            <p class="review-text">"Safety was my priority. Cozy Corner verified listings really helped. The CCTV and guard promise was real."</p>
-            <span class="property-tag">Stayed at Daisy Girls Hostel</span>
+          </div>
         </div>
+        <p class="review-text">
+          "Safety was my priority. Cozy Corner verified listings really helped.
+          The CCTV and guard promise was real."
+        </p>
+        <span class="property-tag">Stayed at Daisy Girls Hostel</span>
+      </div>
 
-        <div class="review-card">
-            <div class="user-info">
-                <div class="avatar" style="background: #a29bfe;">RK</div>
-                <div>
-                    <strong>Rahul Kumar</strong>
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                </div>
+      <div class="review-card">
+        <div class="user-info">
+          <div class="avatar" style="background: #a29bfe">RK</div>
+          <div>
+            <strong>Rahul Kumar</strong>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="far fa-star"></i>
             </div>
-            <p class="review-text">"Great app experience. The flat was good, but the wifi was a bit slow initially. Host fixed it later though."</p>
-            <span class="property-tag">Stayed at Greenwood Flats</span>
+          </div>
         </div>
+        <p class="review-text">
+          "Great app experience. The flat was good, but the wifi was a bit slow
+          initially. Host fixed it later though."
+        </p>
+        <span class="property-tag">Stayed at Greenwood Flats</span>
+      </div>
     </div>
 
     <div class="feedback-form">
-        <h2>Share your Experience</h2>
-        <p>Help other students by reviewing your stay.</p>
-        <textarea style="width: 100%; padding: 10px; margin-top: 15px; border-radius: 10px; border: 1px solid #ccc;" rows="3" placeholder="Write your review..."></textarea>
-        <button class="btn" onclick="alert('Review Submitted for Moderation!')">Submit Review</button>
+      <h2>Share your Experience</h2>
+      <p>Help other students by reviewing your stay.</p>
+      <textarea
+        style="
+          width: 100%;
+          padding: 10px;
+          margin-top: 15px;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+        "
+        rows="3"
+        placeholder="Write your review..."
+      ></textarea>
+      <button class="btn" onclick="alert('Review Submitted for Moderation!')">
+        Submit Review
+      </button>
     </div>
-</body>
+    <footer>
+      <p>
+        &copy; 2025 Cozy Corner. Made with
+        <i class="fas fa-heart" style="color: var(--primary-color)"></i> for
+        Students.
+      </p>
+    </footer>
+  </body>
 </html>
