@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!editId) return;
 
   try {
-    const res = await fetch(
-      `${BASE_URL}/api/properties/${editId}`
-    );
+    const res = await fetch(`${BASE_URL}/api/properties/${editId}`);
     const data = await res.json();
 
     document.getElementById("title").value = data.title;
@@ -45,7 +43,7 @@ document.getElementById("fileInput").addEventListener("change", function () {
 
   if (!files || files.length === 0) return;
 
-  Array.from(files).forEach(file => {
+  Array.from(files).forEach((file) => {
     if (!file.type.startsWith("image/")) return;
 
     const img = document.createElement("img");
@@ -55,7 +53,6 @@ document.getElementById("fileInput").addEventListener("change", function () {
     preview.appendChild(img);
   });
 });
-
 
 // SUBMIT (ADD / EDIT)
 async function handleSubmit(e) {
@@ -68,12 +65,21 @@ async function handleSubmit(e) {
   const formData = new FormData();
 
   formData.append("title", document.getElementById("title").value);
-  formData.append("propertyType", document.getElementById("propertyType").value);
-  formData.append("occupancyType", document.getElementById("occupancyType").value);
+  formData.append(
+    "propertyType",
+    document.getElementById("propertyType").value
+  );
+  formData.append(
+    "occupancyType",
+    document.getElementById("occupancyType").value
+  );
   formData.append("description", document.getElementById("description").value);
   formData.append("address", document.getElementById("address").value);
   formData.append("city", document.getElementById("city").value);
-  formData.append("nearestCollege", document.getElementById("nearestCollege").value);
+  formData.append(
+    "nearestCollege",
+    document.getElementById("nearestCollege").value
+  );
   formData.append("rent", document.getElementById("rent").value);
   formData.append("deposit", document.getElementById("deposit").value);
   formData.append("rules", document.getElementById("rules").value);
@@ -81,7 +87,10 @@ async function handleSubmit(e) {
   formData.append("amenities[wifi]", document.getElementById("wifi").checked);
   formData.append("amenities[ac]", document.getElementById("ac").checked);
   formData.append("amenities[food]", document.getElementById("food").checked);
-  formData.append("amenities[laundry]", document.getElementById("laundry").checked);
+  formData.append(
+    "amenities[laundry]",
+    document.getElementById("laundry").checked
+  );
   formData.append("amenities[power]", document.getElementById("power").checked);
   formData.append("amenities[cctv]", document.getElementById("cctv").checked);
 
@@ -109,10 +118,38 @@ async function handleSubmit(e) {
 
     if (!res.ok) throw new Error("Upload failed");
 
-    alert(editId ? "Property updated successfully!" : "Property listed successfully!");
+    alert(
+      editId
+        ? "Property updated successfully!"
+        : "Property listed successfully!"
+    );
     window.location.href = "../HostDashboard/HostDashboard.html";
   } catch (err) {
     console.error(err);
-    alert("Something went wrong");
+    showSuccessPopup(
+      "Something went wrong!",
+      "Property Updation Failed",
+      "../HostDashboard/HostDashboard.html"
+    );
   }
+}
+//show Success popup
+function showSuccessPopup(title, message, redirectUrl) {
+  document.getElementById("successTitle").innerText = title;
+  document.getElementById("successMessage").innerText = message;
+
+  const btn = document.getElementById("successBtn");
+
+  btn.onclick = () => {
+    closeSuccessPopup();
+    if (redirectUrl) {
+      window.location.href = redirectUrl;
+    }
+  };
+
+  document.getElementById("successOverlay").style.display = "flex";
+}
+
+function closeSuccessPopup() {
+  document.getElementById("successOverlay").style.display = "none";
 }

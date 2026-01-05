@@ -229,6 +229,18 @@
           <button type="submit" class="btn-submit">Publish Listing</button>
         </div>
       </form>
+      <div class="overlay" id="successOverlay">
+      <div class="success-modal">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h2 id="successTitle">Success!</h2>
+        <p id="successMessage" style="color: var(--text-light); margin: 10px 0 20px">
+          Operation completed successfully.
+        </p>
+        <button class="ok_btn" id="successBtn" onclick="window.location.href='../MyBooking/MyBooking.html'">
+          Ok
+        </button>
+      </div>
+    </div>
     </div>
 
     <script src="AddListing.js"></script>
